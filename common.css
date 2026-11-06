@@ -20,6 +20,9 @@
     --green: #4a9e6e;
     --blue: #5b8ec9;
     --border: #e5e2dc;
+    --border-light: #eeebe4;
+    --bg-card: #fbfaf7;
+    --text-tertiary: #a8a5a0;
     --radius: 12px;
     --transition: 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
 }
@@ -923,4 +926,37 @@ img.lazy-img.loaded { opacity: 1; }
         transition-duration: 0.01ms !important;
     }
     .reveal { opacity: 1 !important; transform: none !important; }
+}
+
+/* ===== Project Brief (content-layer) ===== */
+.brief-section { padding: 0 64px; max-width: 1200px; margin: 0 auto; }
+.brief-card {
+    display: grid; grid-template-columns: 1fr 1.25fr; gap: 44px;
+    background: var(--bg-white); border: 1px solid var(--border);
+    border-left: 4px solid var(--accent); border-radius: var(--radius);
+    padding: 36px 40px;
+}
+.brief-meta { display: flex; flex-direction: column; }
+.brief-meta-item { display: flex; flex-direction: column; gap: 4px; padding: 13px 0; border-bottom: 1px solid var(--border); }
+.brief-meta-item:first-child { padding-top: 0; }
+.brief-meta-item:last-child { border-bottom: none; padding-bottom: 0; }
+.brief-meta-label { font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-dim); }
+.brief-meta-value { font-size: 15px; font-weight: 600; color: var(--text-primary); line-height: 1.55; }
+.brief-role { border-left: 1px solid var(--border); padding-left: 44px; }
+.brief-role-title { font-size: 15px; font-weight: 600; margin-bottom: 16px; }
+.brief-role ul { list-style: none; }
+.brief-role li { position: relative; padding-left: 22px; margin-bottom: 12px; font-size: 13.5px; color: var(--text-secondary); line-height: 1.75; }
+.brief-role li::before { content: ''; position: absolute; left: 0; top: 10px; width: 7px; height: 7px; border-radius: 50%; background: var(--accent); }
+.brief-note { margin-top: 18px; padding-top: 14px; border-top: 1px dashed var(--border); font-size: 12px; color: var(--text-dim); line-height: 1.7; }
+
+/* ===== Data source note ===== */
+.data-note { margin-top: 20px; font-size: 12px; color: var(--text-dim); line-height: 1.7; }
+
+/* ===== Index section subtitle note ===== */
+.section-subtitle-note { margin-top: 12px; font-size: 13.5px; color: var(--text-secondary); max-width: 640px; }
+
+@media (max-width: 900px) {
+    .brief-section { padding: 0 24px; }
+    .brief-card { grid-template-columns: 1fr; gap: 24px; padding: 28px 24px; }
+    .brief-role { border-left: none; padding-left: 0; border-top: 1px solid var(--border); padding-top: 24px; }
 }
