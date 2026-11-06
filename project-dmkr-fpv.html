@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="icon" href="favicon.png" type="image/png">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <title>DMKR FPV 眼镜 | 吴金政 Merrick Portfolio</title>
+    <meta name="description" content="DMKR FPV 眼镜工业设计 — 4.3寸巨幕沉浸飞行、0-600°近视友好设计、毫秒级低延迟、久飞不压鼻不起雾。专为入门玩家打造的产品ID设计。">
+    <meta property="og:title" content="DMKR FPV 眼镜 | 吴金政 Merrick">
+    <meta property="og:description" content="4.3寸巨幕沉浸飞行 · 0-600°近视直戴 · 毫秒级低延迟">
+    <meta property="og:type" content="article">
+        <meta property="og:url" content="https://aoluae.github.io/merrick-portfolio/project-dmkr-fpv.html">
+    <meta property="og:image" content="https://aoluae.github.io/merrick-portfolio/images/fpv-poster.webp">
+    <meta property="og:locale" content="zh_CN">
+    <link rel="canonical" href="https://aoluae.github.io/merrick-portfolio/project-dmkr-fpv.html">
+    <link rel="stylesheet" href="common.css">
+    <style>
+        :root { --accent: #c8a96e; --accent-light: rgba(200,169,110,0.08); --green: #4a9e6e; --red: #d45555; --blue: #5b8ec9; }
+        /* Page-specific: market cards with FPV accent avatar bg */
+        .persona-card:nth-child(1) .persona-avatar { background: rgba(91,142,201,0.12); }
+        .persona-card:nth-child(2) .persona-avatar { background: rgba(74,158,110,0.12); }
+        .persona-card:nth-child(3) .persona-avatar { background: rgba(200,169,110,0.12); }
+
+        /* Gallery item clickable */
+        .gallery-item { cursor: pointer; }
+
+        /* Gallery lazy img */
+        .gallery-item img { transition: transform 0.6s ease, opacity 0.5s ease; opacity: 0; }
+        .gallery-item img.loaded { opacity: 1; }
+
+        /* ===== Structure Layout ===== */
+        .structure-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+            align-items: start;
+        }
+        .structure-hero img {
+            opacity: 0;
+            transition: opacity 0.6s ease;
+        }
+        .structure-hero img.loaded { opacity: 1; }
+        .structure-details {
+            display: flex;
+            flex-direction: column;
+            gap: 28px;
+        }
+        .structure-group {}
+        .structure-group-title {
+            font-size: 13px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--accent);
+            margin-bottom: 14px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid var(--border);
+        }
+        .structure-item {
+            display: flex;
+            gap: 14px;
+            align-items: flex-start;
+            padding: 10px 0;
+        }
+        .structure-item + .structure-item {
+            border-top: 1px solid rgba(0,0,0,0.04);
+        }
+        .structure-item-num {
+            flex-shrink: 0;
+            width: 28px;
+            height: 28px;
+            border-radius: 8px;
+            background: var(--accent-light);
+            color: var(--accent);
+            font-size: 12px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .structure-item strong {
+            display: block;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 3px;
+        }
+        .structure-item p {
+            font-size: 13px;
+            color: var(--text-secondary);
+            line-height: 1.55;
+            margin: 0;
+        }
+
+        @media (max-width: 900px) {
+            .structure-layout {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+            .structure-hero { order: -1; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Back Nav -->
+    <nav class="back-nav">
+        <a href="index.html" class="back-link">← 返回作品集</a>
+        <div class="back-logo">吴金政 Merrick</div>
+    </nav>
+
+    <!-- Project Hero -->
+    <section class="project-hero" style="--accent: #c8a96e;">
+        <div class="project-hero-inner reveal">
+            <p class="project-hero-label" style="color: var(--accent);" data-editable="text" data-edit-id="fpv-hero-label">Product ID Design · 2026</p>
+            <h1 data-editable="text" data-edit-id="fpv-hero-title">DMKR FPV 眼镜</h1>
+            <p class="project-hero-subtitle" data-editable="text" data-edit-id="fpv-hero-subtitle">4.3 寸巨幕 FPV 眼镜——从入门到进阶，一步到位。毫秒级低延迟沉浸飞行，专为近视玩家优化，久飞不压鼻、不起雾。</p>
+            <div class="project-hero-meta">
+                <div class="project-meta-item">
+                    <label>Category</label>
+                    <span data-editable="text" data-edit-id="fpv-meta-category">无人机 FPV 设备</span>
+                </div>
+                <div class="project-meta-item">
+                    <label>Role</label>
+                    <span data-editable="text" data-edit-id="fpv-meta-role">产品 ID 设计 / CMF / 结构协调</span>
+                </div>
+                <div class="project-meta-item">
+                    <label>Year</label>
+                    <span data-editable="text" data-edit-id="fpv-meta-year">2026</span>
+                </div>
+                <div class="project-meta-item">
+                    <label>Status</label>
+                    <span data-editable="text" data-edit-id="fpv-meta-status">设计中</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery -->
+    <section class="gallery-section">
+        <div class="gallery-grid">
+            <div class="gallery-item" data-index="0" data-editable="image" data-edit-id="fpv-gallery-0">
+                <img src="images/fpv-poster.webp" alt="产品主视觉 · 雪山场景渲染" loading="lazy" class="lazy-img">
+                <div class="gallery-caption" data-editable="text" data-edit-id="fpv-gallery-caption-0">产品主视觉 · 雪山场景渲染</div>
+            </div>
+            <div class="gallery-item" data-index="1" data-editable="image" data-edit-id="fpv-gallery-1">
+                <img src="images/fpv-side.webp" alt="黑色款 · 哑光磨砂质感 · 侧面灯带与接口" loading="lazy" class="lazy-img">
+                <div class="gallery-caption" data-editable="text" data-edit-id="fpv-gallery-caption-1">黑色款 · 哑光磨砂质感 · 侧面灯带与接口</div>
+            </div>
+            <div class="gallery-item" data-index="2" data-editable="image" data-edit-id="fpv-gallery-2">
+                <img src="images/fpv-dual-color.webp" alt="双配色对比 · 白色冷白灯带 / 黑色暖橙灯带" loading="lazy" class="lazy-img">
+                <div class="gallery-caption" data-editable="text" data-edit-id="fpv-gallery-caption-2">双配色对比 · 白色冷白灯带 / 黑色暖橙灯带</div>
+            </div>
+            <div class="gallery-item" data-index="3" data-editable="image" data-edit-id="fpv-gallery-3">
+                <img src="images/fpv-front.webp" alt="白色款 · 半透明视窗 · 接口与灯带细节" loading="lazy" class="lazy-img">
+                <div class="gallery-caption" data-editable="text" data-edit-id="fpv-gallery-caption-3">白色款 · 半透明视窗 · 接口与灯带细节</div>
+            </div>
+            <div class="gallery-item" data-index="4" data-editable="image" data-edit-id="fpv-gallery-4">
+                <img src="images/fpv-exploded.webp" alt="结构爆炸图 · 内部组件拆解展示" loading="lazy" class="lazy-img">
+                <div class="gallery-caption" data-editable="text" data-edit-id="fpv-gallery-caption-4">结构爆炸图 · 内部组件拆解展示</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Market Research -->
+    <section class="content-section" id="market">
+        <div class="reveal">
+            <div class="section-divider"></div>
+            <p class="section-label" style="color:var(--accent)">Market Research</p>
+            <h2 class="section-title-detail">市场调研<strong>分析</strong></h2>
+        </div>
+
+        <div class="market-grid reveal">
+            <div class="market-card">
+                <div class="market-card-icon">📈</div>
+                <h3 class="market-card-title" data-editable="text" data-edit-id="fpv-market-card1-title">FPV 市场持续增长</h3>
+                <p data-editable="text" data-edit-id="fpv-market-card1-desc">全球 FPV 穿越机市场规模预计 2025-2028 年 CAGR 超 15%。DJI Avata 系列验证了"入门 FPV"赛道的天花板，消费级 FPV 不再只是极客圈的小众爱好，正在向大众化快速渗透。</p>
+            </div>
+            <div class="market-card">
+                <div class="market-card-icon">🎯</div>
+                <h3 class="market-card-title" data-editable="text" data-edit-id="fpv-market-card2-title">入门市场空白</h3>
+                <p data-editable="text" data-edit-id="fpv-market-card2-desc">高端市场被 DJI Goggle 系列占据（售价 3000-5000 元），低端产品画质差、延迟高。800-2000 元价位段的"高性价比入门"产品存在明显空白，大量新手不知道该选什么。</p>
+            </div>
+            <div class="market-card">
+                <div class="market-card-icon">👓</div>
+                <h3 class="market-card-title" data-editable="text" data-edit-id="fpv-market-card3-title">近视人群被忽视</h3>
+                <p data-editable="text" data-edit-id="fpv-market-card3-desc">中国近视率超 50%，FPV 用户群体中近视比例更高。但绝大多数 FPV 眼镜不支持屈光度调节或需要额外购买近视镜片，用户体验严重断裂。</p>
+            </div>
+        </div>
+
+        <div class="market-chart reveal">
+            <div class="chart-box">
+                <h3 class="chart-title" data-editable="text" data-edit-id="fpv-chart1-title">FPV 眼镜用户核心购买因素</h3>
+                <div class="bar-chart">
+                    <div class="bar-row">
+                        <span class="bar-label">画质清晰度</span>
+                        <div class="bar-track"><div class="bar-fill accent" data-width="88%"></div></div>
+                        <span class="bar-value">88%</span>
+                    </div>
+                    <div class="bar-row">
+                        <span class="bar-label">延迟表现</span>
+                        <div class="bar-track"><div class="bar-fill accent" data-width="82%"></div></div>
+                        <span class="bar-value">82%</span>
+                    </div>
+                    <div class="bar-row">
+                        <span class="bar-label">佩戴舒适度</span>
+                        <div class="bar-track"><div class="bar-fill red" data-width="76%"></div></div>
+                        <span class="bar-value">76%</span>
+                    </div>
+                    <div class="bar-row">
+                        <span class="bar-label">价格</span>
+                        <div class="bar-track"><div class="bar-fill blue" data-width="71%"></div></div>
+                        <span class="bar-value">71%</span>
+                    </div>
+                    <div class="bar-row">
+                        <span class="bar-label">近视适配</span>
+                        <div class="bar-track"><div class="bar-fill red" data-width="63%"></div></div>
+                        <span class="bar-value">63%</span>
+                    </div>
+                    <div class="bar-row">
+                        <span class="bar-label">录像功能</span>
+                        <div class="bar-track"><div class="bar-fill green" data-width="54%"></div></div>
+                        <span class="bar-value">54%</span>
+                    </div>
+                </div>
+            </div>
+            <div class="chart-box">
+                <h3 class="chart-title" data-editable="text" data-edit-id="fpv-chart2-title">现有产品痛点反馈 TOP5</h3>
+                <div class="bar-chart">
+                    <div class="bar-row">
+                        <span class="bar-label">戴眼镜难受</span>
+                        <div class="bar-track"><div class="bar-fill red" data-width="92%"></div></div>
+                        <span class="bar-value">92%</span>
+                    </div>
+                    <div class="bar-row">
+                        <span class="bar-label">画面延迟</span>
+                        <div class="bar-track"><div class="bar-fill red" data-width="78%"></div></div>
+                        <span class="bar-value">78%</span>
+                    </div>
+                    <div class="bar-row">
+                        <span class="bar-label">久戴压鼻</span>
+                        <div class="bar-track"><div class="bar-fill red" data-width="74%"></div></div>
+                        <span class="bar-value">74%</span>
+                    </div>
+                    <div class="bar-row">
+                        <span class="bar-label">起雾看不清</span>
+                        <div class="bar-track"><div class="bar-fill red" data-width="69%"></div></div>
+                        <span class="bar-value">69%</span>
+                    </div>
+                    <div class="bar-row">
+                        <span class="bar-label">设备太贵</span>
+                        <div class="bar-track"><div class="bar-fill blue" data-width="65%"></div></div>
+                        <span class="bar-value">65%</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="market-insight reveal">
+            <div class="market-insight-title">💡 设计洞察</div>
+            <p data-editable="text" data-edit-id="fpv-market-insight">FPV 眼镜市场存在明显的"体验断层"——高端产品体验好但价格劝退，入门产品价格友好但体验拉胯。最大痛点集中在<strong>近视适配</strong>和<strong>佩戴舒适度</strong>，这两点直接影响用户是否愿意持续使用。DMKR FPV 眼镜的设计策略：以入门价位提供中高端体验，从近视适配和佩戴舒适切入，做"真正能用的入门 FPV 眼镜"。</p>
+        </div>
+    </section>
+
+    <!-- User Persona -->
+    <section class="content-section" id="persona">
+        <div class="reveal">
+            <div class="section-divider"></div>
+            <p class="section-label" style="color:var(--accent)">User Persona</p>
+            <h2 class="section-title-detail">用户画像<strong>分析</strong></h2>
+        </div>
+
+        <div class="persona-grid reveal">
+            <div class="persona-card">
+                <div class="persona-avatar">🛩️</div>
+                <h3 class="persona-name" data-editable="text" data-edit-id="fpv-persona1-name">FPV 入门新手</h3>
+                <p class="persona-tagline" data-editable="text" data-edit-id="fpv-persona1-tagline">核心人群 · 占比 45%</p>
+                <p class="persona-detail" data-editable="text" data-edit-id="fpv-persona1-detail">25-35 岁，对穿越机感兴趣但尚未入手 FPV 设备。预算有限（800-2000 元），不想一步到位投入大几千，但也不想买体验差的"电子垃圾"。最怕买回来吃灰。</p>
+                <div class="persona-quote" data-editable="text" data-edit-id="fpv-persona1-quote">我就想先体验一下 FPV 飞行的感觉，不想一上来就花好几千买 DJI。</div>
+            </div>
+            <div class="persona-card">
+                <div class="persona-avatar">👓</div>
+                <h3 class="persona-name" data-editable="text" data-edit-id="fpv-persona2-name">近视 FPV 玩家</h3>
+                <p class="persona-tagline" data-editable="text" data-edit-id="fpv-persona2-tagline">高痛点人群 · 占比 35%</p>
+                <p class="persona-detail" data-editable="text" data-edit-id="fpv-persona2-detail">近视 200-600 度，戴框架眼镜无法正常使用 FPV 眼镜。戴隐形飞行不安全，配近视镜片又贵又麻烦。长期被忽视的刚需群体，买设备前第一句话就是"能调屈光度吗？"</p>
+                <div class="persona-quote" data-editable="text" data-edit-id="fpv-persona2-quote">每次飞都要先戴隐形，太麻烦了。能不能直接戴眼镜飞？</div>
+            </div>
+            <div class="persona-card">
+                <div class="persona-avatar">⚡</div>
+                <h3 class="persona-name" data-editable="text" data-edit-id="fpv-persona3-name">进阶性价比玩家</h3>
+                <p class="persona-tagline" data-editable="text" data-edit-id="fpv-persona3-tagline">潜力人群 · 占比 20%</p>
+                <p class="persona-detail" data-editable="text" data-edit-id="fpv-persona3-detail">有一定 FPV 经验的玩家，拥有模拟器或低端设备。需要一台性价比高的眼镜做日常训练和航拍备机。关注延迟、频段兼容和续航等硬参数。</p>
+                <div class="persona-quote" data-editable="text" data-edit-id="fpv-persona3-quote">我需要一台全频段兼容、能录像的备机，但不值得再买一台 DJI。</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pain Points & Solutions -->
+    <section class="content-section" id="painpoints">
+        <div class="reveal">
+            <div class="section-divider"></div>
+            <p class="section-label" style="color:var(--accent)">Pain Points & Solutions</p>
+            <h2 class="section-title-detail">痛点与<strong>设计回应</strong></h2>
+        </div>
+
+        <div class="pain-layout reveal">
+            <div class="pain-column">
+                <h3 style="color:var(--red)">🔥 用户痛点</h3>
+                <div class="pain-list">
+                    <div class="pain-item problem">
+                        <div class="pain-item-num">PAIN 01</div>
+                        <h4 class="pain-item-title" data-editable="text" data-edit-id="fpv-pain1-title">近视用户无法直戴</h4>
+                        <p class="pain-item-desc" data-editable="text" data-edit-id="fpv-pain1-desc">绝大多数 FPV 眼镜不支持屈光度调节，近视用户要么戴隐形（不安全），要么额外花钱配近视镜片（贵且周期长），直接劝退大量潜在用户。</p>
+                    </div>
+                    <div class="pain-item problem">
+                        <div class="pain-item-num">PAIN 02</div>
+                        <h4 class="pain-item-title" data-editable="text" data-edit-id="fpv-pain2-title">久飞压鼻、面部不适</h4>
+                        <p class="pain-item-desc" data-editable="text" data-edit-id="fpv-pain2-desc">传统 FPV 眼镜重量集中在前端，鼻托承压大，飞行 20 分钟以上鼻梁明显压痕。头带调节困难，不同头型很难找到舒适佩戴位置。</p>
+                    </div>
+                    <div class="pain-item problem">
+                        <div class="pain-item-num">PAIN 03</div>
+                        <h4 class="pain-item-title" data-editable="text" data-edit-id="fpv-pain3-title">镜片起雾严重影响体验</h4>
+                        <p class="pain-item-desc" data-editable="text" data-edit-id="fpv-pain3-desc">面部密封环境下，体温与镜片温差导致快速起雾，尤其在户外温差大的场景。起飞后 5-10 分钟就可能看不清画面，极大影响飞行安全和体验。</p>
+                    </div>
+                    <div class="pain-item problem">
+                        <div class="pain-item-num">PAIN 04</div>
+                        <h4 class="pain-item-title" data-editable="text" data-edit-id="fpv-pain4-title">入门门槛高、功能碎片化</h4>
+                        <p class="pain-item-desc" data-editable="text" data-edit-id="fpv-pain4-desc">新手需要分别购买眼镜、DVR 模块、接收机，总价远超预期。频段不兼容导致换机后眼镜白买。入门即劝退，转化率极低。</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pain-bridge">
+                <div class="pain-bridge-line"></div>
+                <div class="pain-bridge-arrow">→</div>
+                <div class="pain-bridge-line"></div>
+            </div>
+
+            <div class="pain-column">
+                <h3 style="color:var(--green)">✅ 设计回应</h3>
+                <div class="pain-list">
+                    <div class="pain-item solution">
+                        <div class="pain-item-num">SOLVE 01</div>
+                        <h4 class="pain-item-title" data-editable="text" data-edit-id="fpv-solve1-title">0-600° 屈光度直戴</h4>
+                        <p class="pain-item-desc" data-editable="text" data-edit-id="fpv-solve1-desc">内置屈光度调节旋钮，0-600 度无级调节，近视用户无需戴眼镜或配镜片，直接戴上即可清晰飞行。旋钮位于底部，单手即可操作。</p>
+                    </div>
+                    <div class="pain-item solution">
+                        <div class="pain-item-num">SOLVE 02</div>
+                        <h4 class="pain-item-title" data-editable="text" data-edit-id="fpv-solve2-title">人体工学减压设计</h4>
+                        <p class="pain-item-desc" data-editable="text" data-edit-id="fpv-solve2-desc">重新设计面部接触区域的压力分布，增大额托和面颊接触面积，分散鼻梁承重。优化重心布局，将电池后置平衡重量，久飞不压鼻。</p>
+                    </div>
+                    <div class="pain-item solution">
+                        <div class="pain-item-num">SOLVE 03</div>
+                        <h4 class="pain-item-title" data-editable="text" data-edit-id="fpv-solve3-title">防雾通风结构</h4>
+                        <p class="pain-item-desc" data-editable="text" data-edit-id="fpv-solve3-desc">顶部散热孔与面罩边缘导流槽形成微对流，持续排出湿热空气。镜片采用防雾涂层处理，双重保障不起雾，保障飞行全程视野清晰。</p>
+                    </div>
+                    <div class="pain-item solution">
+                        <div class="pain-item-num">SOLVE 04</div>
+                        <h4 class="pain-item-title" data-editable="text" data-edit-id="fpv-solve4-title">一步到位的入门方案</h4>
+                        <p class="pain-item-desc" data-editable="text" data-edit-id="fpv-solve4-desc">内置高清 DVR 录像模块、全频段兼容接收机，开箱即飞，无需额外购买配件。长续航支持连续飞行，让入门用户的第一台 FPV 眼镜就是最后一台。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Design Solution Detail -->
+    <section class="content-section" id="solution">
+        <div class="reveal">
+            <div class="section-divider"></div>
+            <p class="section-label" style="color:var(--accent)">Design Highlights</p>
+            <h2 class="section-title-detail">设计<strong>亮点</strong></h2>
+        </div>
+
+        <div class="solution-grid reveal">
+            <div class="solution-card">
+                <div class="solution-num">01</div>
+                <h3 class="solution-title" data-editable="text" data-edit-id="fpv-sol-card1-title">4.3" 巨幕 · 毫秒级低延迟</h3>
+                <p class="solution-desc" data-editable="text" data-edit-id="fpv-sol-card1-desc">4.3 英寸高清大屏提供沉浸式第一人称飞行体验，画面细腻无颗粒感。毫秒级图传延迟确保操控与画面同步，穿越障碍物时信心十足。</p>
+                <div class="solution-specs">
+                    <span class="solution-spec">4.3" LCD</span>
+                    <span class="solution-spec">低延迟图传</span>
+                    <span class="solution-spec">高刷新率</span>
+                </div>
+            </div>
+            <div class="solution-card">
+                <div class="solution-num">02</div>
+                <h3 class="solution-title" data-editable="text" data-edit-id="fpv-sol-card2-title">0-600° 屈光度调节</h3>
+                <p class="solution-desc" data-editable="text" data-edit-id="fpv-sol-card2-desc">底部旋钮无级调节屈光度，覆盖绝大多数近视用户需求。调节过程流畅无段落感，飞行中可随时微调。彻底告别戴隐形飞行的不安全感。</p>
+                <div class="solution-specs">
+                    <span class="solution-spec">0-600°</span>
+                    <span class="solution-spec">无级调节</span>
+                    <span class="solution-spec">单手操作</span>
+                </div>
+            </div>
+            <div class="solution-card">
+                <div class="solution-num">03</div>
+                <h3 class="solution-title" data-editable="text" data-edit-id="fpv-sol-card3-title">人体工学 · 久飞不压鼻</h3>
+                <p class="solution-desc" data-editable="text" data-edit-id="fpv-sol-card3-desc">重新设计面部接触压力分布，增大的额托与面颊衬垫有效分散重量。电池后置平衡重心，头带多点固定，长时间佩戴依然舒适稳定。</p>
+                <div class="solution-specs">
+                    <span class="solution-spec">压力分散</span>
+                    <span class="solution-spec">重心平衡</span>
+                    <span class="solution-spec">多点固定</span>
+                </div>
+            </div>
+            <div class="solution-card">
+                <div class="solution-num">04</div>
+                <h3 class="solution-title" data-editable="text" data-edit-id="fpv-sol-card4-title">防雾设计 · 视野始终清晰</h3>
+                <p class="solution-desc" data-editable="text" data-edit-id="fpv-sol-card4-desc">顶部散热孔与面罩导流槽构建微对流散热通道，持续排出湿热空气。镜片防雾涂层双重保障，户外大温差场景也清晰如初。</p>
+                <div class="solution-specs">
+                    <span class="solution-spec">微对流散热</span>
+                    <span class="solution-spec">防雾涂层</span>
+                    <span class="solution-spec">导流结构</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Structure Design -->
+    <section class="content-section" id="structure">
+        <div class="reveal">
+            <div class="section-divider"></div>
+            <p class="section-label" style="color:var(--accent)">Structure Design</p>
+            <h2 class="section-title-detail">结构<strong>设计</strong></h2>
+        </div>
+
+        <div class="structure-layout reveal">
+            <div class="structure-hero" data-editable="image" data-edit-id="fpv-structure-img">
+                <img src="images/fpv-exploded.webp" alt="DMKR FPV 眼镜结构爆炸图" loading="lazy" class="lazy-img" style="width:100%;border-radius:var(--radius);">
+            </div>
+            <div class="structure-details">
+                <div class="structure-group">
+                    <h3 class="structure-group-title" data-editable="text" data-edit-id="fpv-struct-group1-title">外部壳体</h3>
+                    <div class="structure-item">
+                        <span class="structure-item-num">A</span>
+                        <div>
+                            <strong data-editable="text" data-edit-id="fpv-struct-A-title">顶盖组件</strong>
+                            <p data-editable="text" data-edit-id="fpv-struct-A-desc">弧形白色顶盖，带散热槽纹理，内侧黑色缓冲垫减震</p>
+                        </div>
+                    </div>
+                    <div class="structure-item">
+                        <span class="structure-item-num">B</span>
+                        <div>
+                            <strong data-editable="text" data-edit-id="fpv-struct-B-title">面罩外壳</strong>
+                            <p data-editable="text" data-edit-id="fpv-struct-B-desc">贴合面部轮廓的弧形壳体，内侧柔软海绵衬垫确保密封与舒适</p>
+                        </div>
+                    </div>
+                    <div class="structure-item">
+                        <span class="structure-item-num">C</span>
+                        <div>
+                            <strong data-editable="text" data-edit-id="fpv-struct-C-title">中框结构</strong>
+                            <p data-editable="text" data-edit-id="fpv-struct-C-desc">白色中框连接顶盖与底座，内嵌卡扣与定位柱保证装配精度</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="structure-group">
+                    <h3 class="structure-group-title" data-editable="text" data-edit-id="fpv-struct-group2-title">核心模组</h3>
+                    <div class="structure-item">
+                        <span class="structure-item-num">D</span>
+                        <div>
+                            <strong data-editable="text" data-edit-id="fpv-struct-D-title">光学模组</strong>
+                            <p data-editable="text" data-edit-id="fpv-struct-D-desc">4.3" LCD 屏幕组件 + 0-600° 屈光度调节机构，黄色边框透明镜片组</p>
+                        </div>
+                    </div>
+                    <div class="structure-item">
+                        <span class="structure-item-num">E</span>
+                        <div>
+                            <strong data-editable="text" data-edit-id="fpv-struct-E-title">主板与金属支架</strong>
+                            <p data-editable="text" data-edit-id="fpv-struct-E-desc">金色金属固定板 + 黑色 PCB 主板，集成图传、DVR 与电源管理</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="structure-group">
+                    <h3 class="structure-group-title" data-editable="text" data-edit-id="fpv-struct-group3-title">交互与细节</h3>
+                    <div class="structure-item">
+                        <span class="structure-item-num">F</span>
+                        <div>
+                            <strong data-editable="text" data-edit-id="fpv-struct-F-title">旋钮与接口</strong>
+                            <p data-editable="text" data-edit-id="fpv-struct-F-desc">底部屈光度调节旋钮 + 侧面功能按键条 + Type-C 充电接口</p>
+                        </div>
+                    </div>
+                    <div class="structure-item">
+                        <span class="structure-item-num">G</span>
+                        <div>
+                            <strong data-editable="text" data-edit-id="fpv-struct-G-title">灯带模组</strong>
+                            <p data-editable="text" data-edit-id="fpv-struct-G-desc">透明弧形导光条，白色款冷蓝光 / 黑色款暖橙光，指示工作状态</p>
+                        </div>
+                    </div>
+                    <div class="structure-item">
+                        <span class="structure-item-num">H</span>
+                        <div>
+                            <strong data-editable="text" data-edit-id="fpv-struct-H-title">散热与防雾</strong>
+                            <p data-editable="text" data-edit-id="fpv-struct-H-desc">顶部散热孔 + 底部进风口形成微对流，镜片防雾涂层双重保障</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Summary -->
+    <section class="summary-section">
+        <div class="summary-inner reveal">
+            <p class="section-label" style="color:var(--accent)">Project Summary</p>
+            <h2 class="summary-title" data-editable="text" data-edit-id="fpv-summary-title">让每个人都能<strong>飞起来</strong></h2>
+            <p class="summary-desc" data-editable="text" data-edit-id="fpv-summary-desc">DMKR FPV 眼镜的设计从真实痛点出发——近视不能飞、压鼻飞不久、起雾看不清、入门太复杂。每一处设计决策都在回应这些问题。不是参数堆叠，是让 FPV 真正变得"可用"。</p>
+            <div class="summary-tags">
+                <span class="summary-tag" data-editable="text" data-edit-id="fpv-summary-tag1">产品 ID 设计</span>
+                <span class="summary-tag" data-editable="text" data-edit-id="fpv-summary-tag2">CMF 方案</span>
+                <span class="summary-tag" data-editable="text" data-edit-id="fpv-summary-tag3">用户研究</span>
+                <span class="summary-tag" data-editable="text" data-edit-id="fpv-summary-tag4">结构协调</span>
+                <span class="summary-tag" data-editable="text" data-edit-id="fpv-summary-tag5">竞品分析</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Navigation -->
+    <nav class="project-nav">
+        <a href="project-antarikha.html" class="project-nav-link prev">
+            <span class="project-nav-icon">←</span>
+            <div>
+                <div class="project-nav-label">上一个项目</div>
+                <div class="project-nav-title">Antarikha 两栖无人机</div>
+            </div>
+        </a>
+        <div class="project-nav-center">
+            <span>FPV 眼镜</span>
+        </div>
+        <a href="project-elecom.html" class="project-nav-link next">
+            <div>
+                <div class="project-nav-label">下一个项目</div>
+                <div class="project-nav-title">ELECOM 直发器 2.0</div>
+            </div>
+            <span class="project-nav-icon">→</span>
+        </a>
+    </nav>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <span>© 2026 吴金政 Merrick. All rights reserved.</span>
+        <div class="footer-icons">
+            <a href="mailto:2521796885@qq.com" class="footer-icon" title="发送邮件">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+                </svg>
+                <span>2521796885@qq.com</span>
+            </a>
+            <a href="#" class="footer-icon" title="微信">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                </svg>
+                <span>WeChat</span>
+            </a>
+        </div>
+    </footer>
+
+    <!-- Back to Top -->
+    <button class="back-to-top" id="backToTop" aria-label="回到顶部">↑</button>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <button class="lightbox-close" id="lightboxClose" aria-label="关闭">✕</button>
+        <button class="lightbox-prev" id="lightboxPrev" aria-label="上一张">‹</button>
+        <button class="lightbox-next" id="lightboxNext" aria-label="下一张">›</button>
+        <div class="lightbox-img-wrap">
+            <img class="lightbox-img" id="lightboxImg" src="" alt="">
+        </div>
+        <p class="lightbox-caption" id="lightboxCaption"></p>
+        <div class="lightbox-counter" id="lightboxCounter"></div>
+        <div class="lightbox-hint">← 左右滑动切换 →</div>
+    </div>
+
+    <script>
+        /* ===== Reveal ===== */
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('visible');
+            });
+        }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+        document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+        /* ===== Back to top ===== */
+        window.addEventListener('scroll', () => {
+            document.getElementById('backToTop').classList.toggle('visible', window.scrollY > window.innerHeight);
+        });
+        document.getElementById('backToTop').addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        /* ===== Lazy loading ===== */
+        const lazyObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const img = entry.target;
+                    if (img.dataset.src) img.src = img.dataset.src;
+                    img.classList.add('loaded');
+                    lazyObserver.unobserve(img);
+                }
+            });
+        }, { threshold: 0.05 });
+        document.querySelectorAll('.lazy-img').forEach(img => {
+            if (img.complete) { img.classList.add('loaded'); }
+            else { lazyObserver.observe(img); }
+        });
+
+        /* ===== Animate bars ===== */
+        const barObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.querySelectorAll('.bar-fill').forEach(bar => {
+                        const width = bar.dataset.width || bar.style.width;
+                        bar.style.width = '0%';
+                        setTimeout(() => { bar.style.width = width; }, 100);
+                    });
+                }
+            });
+        }, { threshold: 0.2 });
+        document.querySelectorAll('.chart-box').forEach(el => barObserver.observe(el));
+
+        /* ===== Lightbox ===== */
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightboxImg');
+        const lightboxCaption = document.getElementById('lightboxCaption');
+        const lightboxCounter = document.getElementById('lightboxCounter');
+        const lightboxClose = document.getElementById('lightboxClose');
+        const lightboxPrev = document.getElementById('lightboxPrev');
+        const lightboxNext = document.getElementById('lightboxNext');
+
+        const galleryItems = document.querySelectorAll('.gallery-item');
+        let currentIndex = 0;
+
+        function openLightbox(index) {
+            currentIndex = index;
+            updateLightbox();
+            lightbox.classList.add('open');
+            document.body.style.overflow = 'hidden';
+        }
+        function closeLightbox() {
+            lightbox.classList.remove('open');
+            document.body.style.overflow = '';
+        }
+        function updateLightbox() {
+            const item = galleryItems[currentIndex];
+            const img = item.querySelector('img');
+            lightboxImg.src = img.src;
+            lightboxImg.alt = img.alt;
+            const caption = item.querySelector('.gallery-caption');
+            lightboxCaption.textContent = caption ? caption.textContent : (img.alt || '');
+            lightboxCounter.textContent = (currentIndex + 1) + ' / ' + galleryItems.length;
+            lightboxPrev.disabled = currentIndex === 0;
+            lightboxNext.disabled = currentIndex === galleryItems.length - 1;
+        }
+        function prevImage() { if (currentIndex > 0) { currentIndex--; updateLightbox(); } }
+        function nextImage() { if (currentIndex < galleryItems.length - 1) { currentIndex++; updateLightbox(); } }
+
+        galleryItems.forEach((item, i) => {
+            item.addEventListener('click', () => openLightbox(i));
+        });
+
+        lightboxClose.addEventListener('click', closeLightbox);
+        lightboxPrev.addEventListener('click', prevImage);
+        lightboxNext.addEventListener('click', nextImage);
+        lightbox.addEventListener('click', (e) => { if (e.target === lightbox) closeLightbox(); });
+
+        document.addEventListener('keydown', (e) => {
+            if (!lightbox.classList.contains('open')) return;
+            if (e.key === 'Escape') closeLightbox();
+            if (e.key === 'ArrowLeft') prevImage();
+            if (e.key === 'ArrowRight') nextImage();
+        });
+
+        let touchStartX = 0;
+        lightbox.addEventListener('touchstart', (e) => { touchStartX = e.touches[0].clientX; }, { passive: true });
+        lightbox.addEventListener('touchend', (e) => {
+            const dx = e.changedTouches[0].clientX - touchStartX;
+            if (Math.abs(dx) > 50) { if (dx < 0) nextImage(); else prevImage(); }
+        }, { passive: true });
+    </script>
+    <script src="editor.js"></script>
+</body>
+</html>

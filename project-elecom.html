@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="icon" href="favicon.png" type="image/png">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <title>ELECOM 直发器 2.0 | 吴金政 Merrick Portfolio</title>
+    <meta name="description" content="ELECOM 直发器 2.0 CMF 迭代设计 — 面向20-35岁都市女性的直发器外观升级，聚焦桌面美学、通勤单手操作、差旅便携收纳。">
+    <meta property="og:title" content="ELECOM 直发器 2.0 | 吴金政 Merrick">
+    <meta property="og:description" content="桌面美学 · 直觉式操作 · 便携收纳">
+    <meta property="og:type" content="article">
+        <meta property="og:url" content="https://aoluae.github.io/merrick-portfolio/project-elecom.html">
+    <meta property="og:image" content="https://aoluae.github.io/merrick-portfolio/images/elecom-product-main.webp">
+    <meta property="og:locale" content="zh_CN">
+    <link rel="canonical" href="https://aoluae.github.io/merrick-portfolio/project-elecom.html">
+    <link rel="stylesheet" href="common.css">
+    <style>
+        :root { --accent: #c8a96e; --accent-light: rgba(200,169,110,0.08); --green: #4a9e6e; --red: #d45555; --blue: #5b8ec9; }
+        .persona-card:nth-child(1) .persona-avatar { background: rgba(200,169,110,0.12); }
+        .persona-card:nth-child(2) .persona-avatar { background: rgba(91,142,201,0.12); }
+        .persona-card:nth-child(3) .persona-avatar { background: rgba(212,85,85,0.12); }
+        .gallery-item { cursor: pointer; }
+        .gallery-item img { transition: transform 0.6s ease, opacity 0.5s ease; opacity: 0; }
+        .gallery-item img.loaded { opacity: 1; }
+        .cmf-colorway {
+            display: flex;
+            gap: 24px;
+            margin-top: 32px;
+            flex-wrap: wrap;
+        }
+        .cmf-color-card {
+            flex: 1;
+            min-width: 200px;
+            background: var(--bg-card);
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid var(--border-light);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .cmf-color-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,0,0,0.08); }
+        .cmf-color-swatch {
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .cmf-color-info {
+            padding: 20px;
+        }
+        .cmf-color-name {
+            font-size: 1.05rem;
+            font-weight: 600;
+            margin-bottom: 6px;
+            color: var(--text-primary);
+        }
+        .cmf-color-code {
+            font-size: 0.85rem;
+            color: var(--text-tertiary);
+            font-family: 'SF Mono', 'Fira Code', monospace;
+        }
+        .design-detail-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            margin-top: 32px;
+        }
+        .design-detail-card {
+            background: var(--bg-card);
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid var(--border-light);
+            transition: transform 0.3s ease;
+        }
+        .design-detail-card:hover { transform: translateY(-2px); }
+        .design-detail-card img {
+            width: 100%;
+            display: block;
+        }
+        .design-detail-card .detail-label {
+            padding: 16px 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            border-top: 1px solid var(--border-light);
+        }
+        @media (max-width: 900px) {
+            .design-detail-grid { grid-template-columns: 1fr; }
+            .cmf-colorway { gap: 16px; }
+            .cmf-color-card { min-width: 140px; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="back-nav">
+        <a href="index.html" class="back-link">← 返回作品集</a>
+        <div class="back-logo">吴金政 Merrick</div>
+    </nav>
+
+    <section class="project-hero" style="--accent: #c8a96e;">
+        <div class="project-hero-inner reveal">
+            <p class="project-hero-label" style="color: var(--accent);" data-editable="text" data-edit-id="elecom-hero-label">CMF Iteration · 2025</p>
+            <h1 data-editable="text" data-edit-id="elecom-hero-title">ELECOM 直发器 2.0</h1>
+            <p class="project-hero-subtitle" data-editable="text" data-edit-id="elecom-hero-subtitle">面向都市女性的直发器 CMF 外观迭代设计。73% 消费者将外观列为购买决策前三要素——美发工具不仅要好用，更要好看。</p>
+            <div class="project-hero-meta">
+                <div class="project-meta-item"><label>Category</label><span data-editable="text" data-edit-id="elecom-meta-category">美发工具</span></div>
+                <div class="project-meta-item"><label>Role</label><span data-editable="text" data-edit-id="elecom-meta-role">CMF 外观迭代设计</span></div>
+                <div class="project-meta-item"><label>Year</label><span data-editable="text" data-edit-id="elecom-meta-year">2025</span></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="gallery-section">
+        <div class="gallery-grid">
+            <div class="gallery-item" data-index="0" data-editable="image" data-edit-id="elecom-gallery-0">
+                <img
+                    src="images/elecom-product-main.webp"
+                    alt="产品主视觉 · 闭合与展开状态"
+                    loading="lazy" class="lazy-img"
+                    onerror="this.src=''; this.parentElement.style.background='linear-gradient(145deg,#f0ece4,#ddd7cc)'; this.parentElement.innerHTML='<div style=display:flex;align-items:center;justify-content:center;height:100%;font-size:48px;opacity:0.3>✂️</div>';"
+                >
+                <div class="gallery-caption" data-editable="text" data-edit-id="elecom-gallery-caption-0">产品主视觉 · 闭合与展开状态</div>
+            </div>
+            <div class="gallery-item" data-index="1" data-editable="image" data-edit-id="elecom-gallery-1">
+                <img
+                    src="images/elecom-cmf-trio.webp"
+                    alt="CMF 三色方案 · 薄荷绿 / 樱花粉 / 淡紫"
+                    loading="lazy" class="lazy-img"
+                    onerror="this.src=''; this.parentElement.style.background='linear-gradient(145deg,#f0ece4,#ddd7cc)'; this.parentElement.innerHTML='<div style=display:flex;align-items:center;justify-content:center;height:100%;font-size:48px;opacity:0.3>🎨</div>';"
+                >
+                <div class="gallery-caption" data-editable="text" data-edit-id="elecom-gallery-caption-1">CMF 三色方案 · 薄荷绿 / 樱花粉 / 淡紫</div>
+            </div>
+            <div class="gallery-item" data-index="2" data-editable="image" data-edit-id="elecom-gallery-2">
+                <img
+                    src="images/elecom-interaction.webp"
+                    alt="交互设计 · 温控档位与电源操作"
+                    loading="lazy" class="lazy-img"
+                    onerror="this.src=''; this.parentElement.style.background='linear-gradient(145deg,#f0ece4,#ddd7cc)'; this.parentElement.innerHTML='<div style=display:flex;align-items:center;justify-content:center;height:100%;font-size:48px;opacity:0.3>⚙️</div>';"
+                >
+                <div class="gallery-caption" data-editable="text" data-edit-id="elecom-gallery-caption-2">交互设计 · 温控档位与电源操作</div>
+            </div>
+            <div class="gallery-item" data-index="3" data-editable="image" data-edit-id="elecom-gallery-3">
+                <img
+                    src="images/elecom-cmf-pink.webp"
+                    alt="粉色款 · 伸展与折叠形态"
+                    loading="lazy" class="lazy-img"
+                    onerror="this.src=''; this.parentElement.style.background='linear-gradient(145deg,#f0ece4,#ddd7cc)'; this.parentElement.innerHTML='<div style=display:flex;align-items:center;justify-content:center;height:100%;font-size:48px;opacity:0.3>💇</div>';"
+                >
+                <div class="gallery-caption" data-editable="text" data-edit-id="elecom-gallery-caption-3">粉色款 · 伸展与折叠形态</div>
+            </div>
+            <div class="gallery-item" data-index="4" data-editable="image" data-edit-id="elecom-gallery-4">
+                <img
+                    src="images/elecom-cmf-white.webp"
+                    alt="白色款 · 闭合与展开结构"
+                    loading="lazy" class="lazy-img"
+                    onerror="this.src=''; this.parentElement.style.background='linear-gradient(145deg,#f0ece4,#ddd7cc)'; this.parentElement.innerHTML='<div style=display:flex;align-items:center;justify-content:center;height:100%;font-size:48px;opacity:0.3>✨</div>';"
+                >
+                <div class="gallery-caption" data-editable="text" data-edit-id="elecom-gallery-caption-4">白色款 · 闭合与展开结构</div>
+            </div>
+            <div class="gallery-item" data-index="5" data-editable="image" data-edit-id="elecom-gallery-5">
+                <img
+                    src="images/elecom-structure.webp"
+                    alt="结构设计 · 弧形凹槽与金属底座细节"
+                    loading="lazy" class="lazy-img"
+                    onerror="this.src=''; this.parentElement.style.background='linear-gradient(145deg,#f0ece4,#ddd7cc)'; this.parentElement.innerHTML='<div style=display:flex;align-items:center;justify-content:center;height:100%;font-size:48px;opacity:0.3>🔧</div>';"
+                >
+                <div class="gallery-caption" data-editable="text" data-edit-id="elecom-gallery-caption-5">结构设计 · 弧形凹槽与金属底座细节</div>
+            </div>
+            <div class="gallery-item" data-index="6" data-editable="image" data-edit-id="elecom-gallery-6">
+                <img
+                    src="images/elecom-detail.webp"
+                    alt="场景特写 · Type-C 接口与使用细节"
+                    loading="lazy" class="lazy-img"
+                    onerror="this.src=''; this.parentElement.style.background='linear-gradient(145deg,#f0ece4,#ddd7cc)'; this.parentElement.innerHTML='<div style=display:flex;align-items:center;justify-content:center;height:100%;font-size:48px;opacity:0.3>📸</div>';"
+                >
+                <div class="gallery-caption" data-editable="text" data-edit-id="elecom-gallery-caption-6">场景特写 · Type-C 接口与使用细节</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="content-section" id="cmf-design">
+        <div class="reveal">
+            <div class="section-divider"></div>
+            <p class="section-label" style="color:var(--accent)">CMF Design</p>
+            <h2 class="section-title-detail">CMF 色彩<strong>方案</strong></h2>
+        </div>
+        <div class="reveal">
+            <p style="color:var(--text-secondary);max-width:720px;line-height:1.8;" data-editable="text" data-edit-id="elecom-cmf-intro">从都市女性的生活场景出发，以马卡龙色系为灵感，打造三套差异化 CMF 方案。每一款配色都对应一种生活方式——薄荷绿呼应清新活力，樱花粉呼应温柔少女，淡紫呼应优雅知性。哑光磨砂质感搭配银色金属点缀，让产品从浴室工具蜕变为桌面美学单品。</p>
+            <div class="cmf-colorway">
+                <div class="cmf-color-card">
+                    <div class="cmf-color-swatch" style="background:linear-gradient(135deg,#a8e6cf,#7ecba1);"></div>
+                    <div class="cmf-color-info">
+                        <div class="cmf-color-name" data-editable="text" data-edit-id="elecom-cmf1-name">薄荷绿 · Mint Green</div>
+                        <div class="cmf-color-code">清新活力 · 日常通勤</div>
+                    </div>
+                </div>
+                <div class="cmf-color-card">
+                    <div class="cmf-color-swatch" style="background:linear-gradient(135deg,#ffb7c5,#ff9fb1);"></div>
+                    <div class="cmf-color-info">
+                        <div class="cmf-color-name" data-editable="text" data-edit-id="elecom-cmf2-name">樱花粉 · Sakura Pink</div>
+                        <div class="cmf-color-code">温柔少女 · 社交出片</div>
+                    </div>
+                </div>
+                <div class="cmf-color-card">
+                    <div class="cmf-color-swatch" style="background:linear-gradient(135deg,#c5b3e6,#b09ed6);"></div>
+                    <div class="cmf-color-info">
+                        <div class="cmf-color-name" data-editable="text" data-edit-id="elecom-cmf3-name">淡紫 · Lavender</div>
+                        <div class="cmf-color-code">优雅知性 · 差旅随行</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="content-section" id="design-details">
+        <div class="reveal">
+            <div class="section-divider"></div>
+            <p class="section-label" style="color:var(--accent)">Design Details</p>
+            <h2 class="section-title-detail">设计<strong>细节</strong></h2>
+        </div>
+        <div class="design-detail-grid reveal">
+            <div class="design-detail-card">
+                <img src="images/elecom-interaction.webp" alt="交互操作" loading="lazy" class="lazy-img"
+                    onerror="this.parentElement.style.background='linear-gradient(145deg,#f0ece4,#ddd7cc)'; this.style.display='none';">
+                <div class="detail-label" data-editable="text" data-edit-id="elecom-detail-label-1">直觉式交互 · 双温控档位 120°C / 190°C，水滴形电源键一目了然</div>
+            </div>
+            <div class="design-detail-card">
+                <img src="images/elecom-structure.webp" alt="结构设计" loading="lazy" class="lazy-img"
+                    onerror="this.parentElement.style.background='linear-gradient(145deg,#f0ece4,#ddd7cc)'; this.style.display='none';">
+                <div class="detail-label" data-editable="text" data-edit-id="elecom-detail-label-2">结构细节 · 弧形凹槽导引握持，银色金属底座提升质感</div>
+            </div>
+            <div class="design-detail-card">
+                <img src="images/elecom-cmf-white.webp" alt="折叠结构" loading="lazy" class="lazy-img"
+                    onerror="this.parentElement.style.background='linear-gradient(145deg,#f0ece4,#ddd7cc)'; this.style.display='none';">
+                <div class="detail-label" data-editable="text" data-edit-id="elecom-detail-label-3">折叠收纳 · V 形展开结构，透明连接件可视化转轴工艺</div>
+            </div>
+            <div class="design-detail-card">
+                <img src="images/elecom-detail.webp" alt="使用场景" loading="lazy" class="lazy-img"
+                    onerror="this.parentElement.style.background='linear-gradient(145deg,#f0ece4,#ddd7cc)'; this.style.display='none';">
+                <div class="detail-label" data-editable="text" data-edit-id="elecom-detail-label-4">场景质感 · Type-C 充电、荔枝纹皮革映衬，桌面美学拉满</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="content-section" id="market">
+        <div class="reveal">
+            <div class="section-divider"></div>
+            <p class="section-label" style="color:var(--accent)">Market Research</p>
+            <h2 class="section-title-detail">市场调研<strong>分析</strong></h2>
+        </div>
+        <div class="market-grid reveal">
+            <div class="market-card">
+                <div class="market-card-icon">📈</div>
+                <h3 class="market-card-title" data-editable="text" data-edit-id="elecom-market-card1-title">美发工具市场增长</h3>
+                <p data-editable="text" data-edit-id="elecom-market-card1-desc">全球美发工具市场年增长率达 10%，其中便携型产品占比高达 65%。消费者从"功能导向"转向"体验导向"，外观和便携性成为核心购买驱动力。</p>
+            </div>
+            <div class="market-card">
+                <div class="market-card-icon">🎨</div>
+                <h3 class="market-card-title" data-editable="text" data-edit-id="elecom-market-card2-title">外观即购买力</h3>
+                <p data-editable="text" data-edit-id="elecom-market-card2-desc">73% 消费者将"外观吸引力"列为购买决策前三要素。小红书重度用户愿为"出片颜值"支付溢价，美发工具正在从功能品变为时尚单品。</p>
+            </div>
+            <div class="market-card">
+                <div class="market-card-icon">⚡</div>
+                <h3 class="market-card-title" data-editable="text" data-edit-id="elecom-market-card3-title">技术溢价空间</h3>
+                <p data-editable="text" data-edit-id="elecom-market-card3-desc">陶瓷涂层 + 智能温控成为高端产品标配，市场溢价空间达 40%。技术升级与外观升级的叠加，是直发器品类的增长杠杆。</p>
+            </div>
+        </div>
+        <div class="market-insight reveal">
+            <div class="market-insight-title">💡 设计洞察</div>
+            <p data-editable="text" data-edit-id="elecom-market-insight">直发器品类的竞争已从"参数之争"转向"体验之争"。核心人群是 20-35 岁都市时尚女性——她们的使用场景不在浴室，而是<strong>地铁通勤补妆、登机箱快速收纳、咖啡厅桌面补妆</strong>。产品不仅要好用，更要在这些公开场景中"拿得出手"。CMF 迭代的关键是让产品拥有<strong>桌面美学</strong>。</p>
+        </div>
+    </section>
+
+    <section class="content-section" id="persona">
+        <div class="reveal">
+            <div class="section-divider"></div>
+            <p class="section-label" style="color:var(--accent)">User Persona</p>
+            <h2 class="section-title-detail">用户画像<strong>分析</strong></h2>
+        </div>
+        <div class="persona-grid reveal">
+            <div class="persona-card">
+                <div class="persona-avatar">💄</div>
+                <h3 class="persona-name" data-editable="text" data-edit-id="elecom-persona1-name">通勤补妆族</h3>
+                <p class="persona-tagline" data-editable="text" data-edit-id="elecom-persona1-tagline">核心场景 · 占比 40%</p>
+                <p class="persona-detail" data-editable="text" data-edit-id="elecom-persona1-detail">25-30 岁，每天地铁通勤 1 小时+。早起赶时间，在地铁上用直发器快速整理刘海和发尾。需要单手操作，机身要轻，温度要快升快降。</p>
+                <div class="persona-quote" data-editable="text" data-edit-id="elecom-persona1-quote">早上出门急，地铁上补一下刘海，操作太复杂真的来不及。</div>
+            </div>
+            <div class="persona-card">
+                <div class="persona-avatar">✈️</div>
+                <h3 class="persona-name" data-editable="text" data-edit-id="elecom-persona2-name">差旅随身派</h3>
+                <p class="persona-tagline" data-editable="text" data-edit-id="elecom-persona2-tagline">高频场景 · 占比 35%</p>
+                <p class="persona-detail" data-editable="text" data-edit-id="elecom-persona2-detail">28-35 岁，频繁出差。登机箱空间有限，直发器必须小巧可收纳。酒店场景下需要快速升温、自动断电，安全感很重要。</p>
+                <div class="persona-quote" data-editable="text" data-edit-id="elecom-persona2-quote">出差必须带，但箱子里塞不下那种笨重的，收纳体积是硬需求。</div>
+            </div>
+            <div class="persona-card">
+                <div class="persona-avatar">☕</div>
+                <h3 class="persona-name" data-editable="text" data-edit-id="elecom-persona3-name">社交美学党</h3>
+                <p class="persona-tagline" data-editable="text" data-edit-id="elecom-persona3-tagline">溢价人群 · 占比 25%</p>
+                <p class="persona-detail" data-editable="text" data-edit-id="elecom-persona3-detail">20-28 岁，小红书重度用户。咖啡厅补妆是日常，产品外观必须"出片"。愿意为颜值和品牌调性付费，产品本身就是社交货币。</p>
+                <div class="persona-quote" data-editable="text" data-edit-id="elecom-persona3-quote">拿出来的那一刻，别人问这是什么牌子——这就是我要的。</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="content-section" id="painpoints">
+        <div class="reveal">
+            <div class="section-divider"></div>
+            <p class="section-label" style="color:var(--accent)">Pain Points & Solutions</p>
+            <h2 class="section-title-detail">痛点与<strong>设计回应</strong></h2>
+        </div>
+        <div class="pain-layout reveal">
+            <div class="pain-column">
+                <h3 style="color:var(--red)">🔥 用户痛点</h3>
+                <div class="pain-list">
+                    <div class="pain-item problem">
+                        <div class="pain-item-num">PAIN 01</div>
+                        <h4 class="pain-item-title" data-editable="text" data-edit-id="elecom-pain1-title">外观缺乏吸引力</h4>
+                        <p class="pain-item-desc" data-editable="text" data-edit-id="elecom-pain1-desc">市面直发器同质化严重，黑白灰塑料感强。消费者需要在公开场景使用，但产品外观拿不出手，缺乏"桌面美学"属性。</p>
+                    </div>
+                    <div class="pain-item problem">
+                        <div class="pain-item-num">PAIN 02</div>
+                        <h4 class="pain-item-title" data-editable="text" data-edit-id="elecom-pain2-title">操作复杂、单手无法使用</h4>
+                        <p class="pain-item-desc" data-editable="text" data-edit-id="elecom-pain2-desc">温控按钮多、档位不直观，通勤场景下单手操作困难。APP 视频指导缺失，新手不知道该选什么温度。</p>
+                    </div>
+                    <div class="pain-item problem">
+                        <div class="pain-item-num">PAIN 03</div>
+                        <h4 class="pain-item-title" data-editable="text" data-edit-id="elecom-pain3-title">安全焦虑</h4>
+                        <p class="pain-item-desc" data-editable="text" data-edit-id="elecom-pain3-desc">防烫设计不足，使用中容易烫到手指和头皮。没有自动断电功能，出门后总担心忘关。材质安全性缺乏透明化说明。</p>
+                    </div>
+                    <div class="pain-item problem">
+                        <div class="pain-item-num">PAIN 04</div>
+                        <h4 class="pain-item-title" data-editable="text" data-edit-id="elecom-pain4-title">收纳不便、差旅携带困难</h4>
+                        <p class="pain-item-desc" data-editable="text" data-edit-id="elecom-pain4-desc">机身偏长偏重，登机箱内占用空间大。没有收纳保护套，夹板高温状态下无法立即收纳。</p>
+                    </div>
+                </div>
+            </div>
+            <div class="pain-bridge">
+                <div class="pain-bridge-line"></div>
+                <div class="pain-bridge-arrow">→</div>
+                <div class="pain-bridge-line"></div>
+            </div>
+            <div class="pain-column">
+                <h3 style="color:var(--green)">✅ 设计回应</h3>
+                <div class="pain-list">
+                    <div class="pain-item solution">
+                        <div class="pain-item-num">SOLVE 01</div>
+                        <h4 class="pain-item-title" data-editable="text" data-edit-id="elecom-solve1-title">CMF 2.0 外观升级</h4>
+                        <p class="pain-item-desc" data-editable="text" data-edit-id="elecom-solve1-desc">全新 CMF 方案——金属质感机身搭配温润配色，磨砂表面手感细腻。从浴室工具升级为桌面美学单品，公开场景拿得出手。</p>
+                    </div>
+                    <div class="pain-item solution">
+                        <div class="pain-item-num">SOLVE 02</div>
+                        <h4 class="pain-item-title" data-editable="text" data-edit-id="elecom-solve2-title">直觉式操作设计</h4>
+                        <p class="pain-item-desc" data-editable="text" data-edit-id="elecom-solve2-desc">简化温控交互，一键切换档位，温度状态可视化显示。单手握持即可完成所有操作，通勤场景零学习成本。</p>
+                    </div>
+                    <div class="pain-item solution">
+                        <div class="pain-item-num">SOLVE 03</div>
+                        <h4 class="pain-item-title" data-editable="text" data-edit-id="elecom-solve3-title">安全防护升级</h4>
+                        <p class="pain-item-desc" data-editable="text" data-edit-id="elecom-solve3-desc">防烫夹板设计、智能温控防止过热、30 分钟自动断电。陶瓷涂层 + 材质安全说明透明化，用得放心。</p>
+                    </div>
+                    <div class="pain-item solution">
+                        <div class="pain-item-num">SOLVE 04</div>
+                        <h4 class="pain-item-title" data-editable="text" data-edit-id="elecom-solve4-title">便携收纳方案</h4>
+                        <p class="pain-item-desc" data-editable="text" data-edit-id="elecom-solve4-desc">缩短机身长度，优化重量分布。配备隔热收纳套，使用完毕即可收入包中。差旅场景无负担随身携带。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="summary-section">
+        <div class="summary-inner reveal">
+            <p class="section-label" style="color:var(--accent)">Project Summary</p>
+            <h2 class="summary-title" data-editable="text" data-edit-id="elecom-summary-title">美发工具的<strong>桌面美学</strong>时代</h2>
+            <p class="summary-desc" data-editable="text" data-edit-id="elecom-summary-desc">ELECOM 直发器 2.0 的迭代不止于换壳——从用户真实使用场景出发，重新定义直发器的外观语言和交互体验。让工具变成配饰，让补妆变成展示。</p>
+            <div class="summary-tags">
+                <span class="summary-tag" data-editable="text" data-edit-id="elecom-summary-tag1">CMF 迭代</span>
+                <span class="summary-tag" data-editable="text" data-edit-id="elecom-summary-tag2">外观设计</span>
+                <span class="summary-tag" data-editable="text" data-edit-id="elecom-summary-tag3">用户研究</span>
+                <span class="summary-tag" data-editable="text" data-edit-id="elecom-summary-tag4">市场调研</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Navigation -->
+    <nav class="project-nav">
+        <a href="project-dmkr-fpv.html" class="project-nav-link prev">
+            <span class="project-nav-icon">←</span>
+            <div>
+                <div class="project-nav-label">上一个项目</div>
+                <div class="project-nav-title">DMKR FPV 眼镜</div>
+            </div>
+        </a>
+        <div class="project-nav-center"><span>直发器 2.0</span></div>
+        <a href="project-pet-dryer.html" class="project-nav-link next">
+            <div>
+                <div class="project-nav-label">下一个项目</div>
+                <div class="project-nav-title">智宠烘干系统</div>
+            </div>
+            <span class="project-nav-icon">→</span>
+        </a>
+    </nav>
+
+    <footer class="footer">
+        <span>© 2026 吴金政 Merrick. All rights reserved.</span>
+        <div class="footer-icons">
+            <a href="mailto:2521796885@qq.com" class="footer-icon" title="发送邮件">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+                </svg>
+                <span>2521796885@qq.com</span>
+            </a>
+            <a href="#" class="footer-icon" title="微信">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                </svg>
+                <span>WeChat</span>
+            </a>
+        </div>
+    </footer>
+
+    <button class="back-to-top" id="backToTop" aria-label="回到顶部">↑</button>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <button class="lightbox-close" id="lightboxClose" aria-label="关闭">✕</button>
+        <button class="lightbox-prev" id="lightboxPrev" aria-label="上一张">‹</button>
+        <button class="lightbox-next" id="lightboxNext" aria-label="下一张">›</button>
+        <div class="lightbox-img-wrap">
+            <img class="lightbox-img" id="lightboxImg" src="" alt="">
+        </div>
+        <p class="lightbox-caption" id="lightboxCaption"></p>
+        <div class="lightbox-counter" id="lightboxCounter"></div>
+        <div class="lightbox-hint">← 左右滑动切换 →</div>
+    </div>
+
+    <script>
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+        }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+        document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+        window.addEventListener('scroll', () => {
+            document.getElementById('backToTop').classList.toggle('visible', window.scrollY > window.innerHeight);
+        });
+        document.getElementById('backToTop').addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        const lazyObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const img = entry.target;
+                    img.classList.add('loaded');
+                    lazyObserver.unobserve(img);
+                }
+            });
+        }, { threshold: 0.05 });
+        document.querySelectorAll('.lazy-img').forEach(img => {
+            if (img.complete) { img.classList.add('loaded'); }
+            else { lazyObserver.observe(img); }
+        });
+
+        /* Lightbox */
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightboxImg');
+        const lightboxCaption = document.getElementById('lightboxCaption');
+        const lightboxCounter = document.getElementById('lightboxCounter');
+        const galleryItems = document.querySelectorAll('.gallery-item');
+        let currentIndex = 0;
+
+        function openLightbox(index) {
+            currentIndex = index;
+            updateLightbox();
+            lightbox.classList.add('open');
+            document.body.style.overflow = 'hidden';
+        }
+        function closeLightbox() {
+            lightbox.classList.remove('open');
+            document.body.style.overflow = '';
+        }
+        function updateLightbox() {
+            const item = galleryItems[currentIndex];
+            const img = item.querySelector('img');
+            lightboxImg.src = img.src;
+            lightboxImg.alt = img.alt;
+            const caption = item.querySelector('.gallery-caption');
+            lightboxCaption.textContent = caption ? caption.textContent : (img.alt || '');
+            lightboxCounter.textContent = (currentIndex + 1) + ' / ' + galleryItems.length;
+            document.getElementById('lightboxPrev').disabled = currentIndex === 0;
+            document.getElementById('lightboxNext').disabled = currentIndex === galleryItems.length - 1;
+        }
+        function prevImage() { if (currentIndex > 0) { currentIndex--; updateLightbox(); } }
+        function nextImage() { if (currentIndex < galleryItems.length - 1) { currentIndex++; updateLightbox(); } }
+
+        galleryItems.forEach((item, i) => { item.addEventListener('click', () => openLightbox(i)); });
+        document.getElementById('lightboxClose').addEventListener('click', closeLightbox);
+        document.getElementById('lightboxPrev').addEventListener('click', prevImage);
+        document.getElementById('lightboxNext').addEventListener('click', nextImage);
+        lightbox.addEventListener('click', (e) => { if (e.target === lightbox) closeLightbox(); });
+
+        document.addEventListener('keydown', (e) => {
+            if (!lightbox.classList.contains('open')) return;
+            if (e.key === 'Escape') closeLightbox();
+            if (e.key === 'ArrowLeft') prevImage();
+            if (e.key === 'ArrowRight') nextImage();
+        });
+
+        let touchStartX = 0;
+        lightbox.addEventListener('touchstart', (e) => { touchStartX = e.touches[0].clientX; }, { passive: true });
+        lightbox.addEventListener('touchend', (e) => {
+            const dx = e.changedTouches[0].clientX - touchStartX;
+            if (Math.abs(dx) > 50) { if (dx < 0) nextImage(); else prevImage(); }
+        }, { passive: true });
+    </script>
+    <script src="editor.js"></script>
+</body>
+</html>

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://aoluae.github.io/merrick-portfolio/sitemap.xml

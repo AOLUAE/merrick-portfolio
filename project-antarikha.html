@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="icon" href="favicon.png" type="image/png">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <title>Antarikha 两栖勘探无人机 | 吴金政 Merrick Portfolio</title>
+    <meta name="description" content="Antarikha 两栖勘探无人机概念设计 — 基于Cyclo Rotor推进系统的海空两用无人机，灵感源自飞鸟与鱼，实现空中飞行与水下潜航无缝切换。">
+    <meta property="og:title" content="Antarikha 两栖勘探无人机 | 吴金政 Merrick">
+    <meta property="og:description" content="海空两用 · Cyclo Rotor推进 · 概念设计">
+    <meta property="og:type" content="article">
+        <meta property="og:url" content="https://aoluae.github.io/merrick-portfolio/project-antarikha.html">
+    <meta property="og:image" content="https://aoluae.github.io/merrick-portfolio/images/antarikha-hero.webp">
+    <meta property="og:locale" content="zh_CN">
+    <link rel="canonical" href="https://aoluae.github.io/merrick-portfolio/project-antarikha.html">
+    <link rel="stylesheet" href="common.css">
+    <style>
+        :root { --accent: #5b8ec9; --accent-light: rgba(91,142,201,0.08); --green: #4a9e6e; --red: #d45555; --blue: #5b8ec9; }
+        .project-hero { background: linear-gradient(135deg, #0d1b2a, #1b2838) !important; }
+        .project-hero::before { background: radial-gradient(circle, rgba(91,142,201,0.08) 0%, transparent 60%); }
+        .project-hero-label { color: #5b8ec9 !important; }
+        .section-label { color: #5b8ec9 !important; }
+        .section-divider { background: #5b8ec9; }
+        .market-insight { border-left-color: #5b8ec9; background: rgba(91,142,201,0.08); }
+        .persona-card:hover { border-color: #5b8ec9; box-shadow: 0 8px 40px rgba(91,142,201,0.08); }
+        .persona-tagline { color: #5b8ec9 !important; }
+        .summary-tag:hover { border-color: #5b8ec9; color: #5b8ec9; }
+        .skill-card:hover { border-color: #5b8ec9; box-shadow: 0 8px 40px rgba(91,142,201,0.08); }
+        .project-nav-link:hover { color: #5b8ec9; border-color: #5b8ec9; background: rgba(91,142,201,0.08); }
+
+        /* Gallery */
+        .gallery-hero { border-radius: var(--radius); overflow: hidden; margin-bottom: 20px; aspect-ratio: 16/9; background: var(--bg-dark); cursor: pointer; position: relative; }
+        .gallery-hero img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; opacity: 0; }
+        .gallery-hero img.loaded { opacity: 1; }
+        .gallery-hero:hover img { transform: scale(1.03); }
+        .gallery-hero .gallery-caption { position: absolute; bottom: 0; left: 0; right: 0; padding: 20px 24px; background: linear-gradient(transparent, rgba(0,0,0,0.6)); font-size: 13px; color: rgba(255,255,255,0.8); opacity: 0; transition: var(--transition); }
+        .gallery-hero:hover .gallery-caption { opacity: 1; }
+
+        .gallery-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; margin-bottom: 20px; }
+        .gallery-item { border-radius: var(--radius); overflow: hidden; aspect-ratio: 4/3; background: var(--bg-dark); cursor: pointer; position: relative; }
+        .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease, opacity 0.5s ease; opacity: 0; }
+        .gallery-item img.loaded { opacity: 1; }
+        .gallery-item:hover img { transform: scale(1.03); }
+        .gallery-item .gallery-caption { position: absolute; bottom: 0; left: 0; right: 0; padding: 16px 20px; background: linear-gradient(transparent, rgba(0,0,0,0.6)); font-size: 12px; color: rgba(255,255,255,0.7); opacity: 0; transition: var(--transition); }
+        .gallery-item:hover .gallery-caption { opacity: 1; }
+
+        /* Video */
+        .video-section { padding: 0 64px 80px; max-width: 1400px; margin: 0 auto; }
+        .video-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; }
+        .video-card { border-radius: var(--radius); overflow: hidden; background: var(--bg-dark); position: relative; }
+        .video-card video { width: 100%; display: block; border-radius: var(--radius); }
+        .video-label { position: absolute; bottom: 12px; left: 16px; font-size: 11px; letter-spacing: 1px; text-transform: uppercase; color: rgba(255,255,255,0.6); background: rgba(0,0,0,0.4); padding: 4px 10px; border-radius: 4px; backdrop-filter: blur(8px); }
+
+        /* Design Details */
+        .details-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; }
+        .details-item { border-radius: var(--radius); overflow: hidden; background: var(--bg-white); border: 1px solid var(--border); transition: var(--transition); }
+        .details-item:hover { border-color: #5b8ec9; box-shadow: 0 8px 32px rgba(91,142,201,0.08); }
+        .details-item-img { aspect-ratio: 4/3; overflow: hidden; background: #f5f5f5; }
+        .details-item-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease, opacity 0.5s ease; opacity: 0; }
+        .details-item-img img.loaded { opacity: 1; }
+        .details-item:hover .details-item-img img { transform: scale(1.03); }
+        .details-item-info { padding: 16px 20px; }
+        .details-item-title { font-size: 13px; font-weight: 600; margin-bottom: 4px; }
+        .details-item-desc { font-size: 12px; color: var(--text-secondary); line-height: 1.6; }
+
+        /* Tech */
+        .tech-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 48px; }
+        .tech-card { padding: 36px 28px; border-radius: var(--radius); background: var(--bg-white); border: 1px solid var(--border); }
+        .tech-card-icon { font-size: 28px; margin-bottom: 16px; }
+        .tech-card-title { font-size: 15px; font-weight: 600; margin-bottom: 12px; }
+        .tech-card p { font-size: 13px; color: var(--text-secondary); line-height: 1.8; }
+
+        .design-process { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-bottom: 48px; }
+        .process-card { padding: 28px 24px; border-radius: var(--radius); background: var(--bg-white); border: 1px solid var(--border); transition: var(--transition); }
+        .process-card:hover { border-color: #5b8ec9; }
+        .process-num { font-size: 11px; letter-spacing: 1px; color: #5b8ec9; font-weight: 600; margin-bottom: 8px; }
+        .process-title { font-size: 14px; font-weight: 600; margin-bottom: 8px; }
+        .process-desc { font-size: 12px; color: var(--text-secondary); line-height: 1.7; }
+
+        /* Feature with image */
+        .feature-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+        .feature-card { padding: 40px 32px; border-radius: var(--radius); background: var(--bg-dark); color: var(--text-light); position: relative; overflow: hidden; display: flex; align-items: center; gap: 28px; }
+        .feature-card::before { content: ''; position: absolute; top: -50%; right: -30%; width: 300px; height: 300px; background: radial-gradient(circle, rgba(91,142,201,0.06) 0%, transparent 60%); pointer-events: none; }
+        .feature-card-inner { flex: 1; min-width: 0; position: relative; z-index: 1; }
+        .feature-num { font-size: 48px; font-weight: 200; color: #5b8ec9; opacity: 0.3; margin-bottom: 16px; }
+        .feature-title { font-size: 18px; font-weight: 600; margin-bottom: 12px; }
+        .feature-desc { font-size: 13px; color: var(--text-dim); line-height: 1.8; margin-bottom: 20px; }
+        .feature-specs { display: flex; gap: 12px; flex-wrap: wrap; }
+        .feature-spec { padding: 6px 14px; border-radius: 100px; border: 1px solid rgba(255,255,255,0.15); font-size: 12px; color: var(--text-dim); }
+        .feature-card-img { width: 200px; flex-shrink: 0; border-radius: 8px; overflow: hidden; position: relative; z-index: 1; }
+        .feature-card-img img { width: 100%; height: auto; border-radius: 8px; display: block; transition: opacity 0.5s ease; opacity: 0; }
+        .feature-card-img img.loaded { opacity: 1; }
+
+        .persona-card:nth-child(1) .persona-avatar { background: rgba(91,142,201,0.12); }
+        .persona-card:nth-child(2) .persona-avatar { background: rgba(74,158,110,0.12); }
+        .persona-card:nth-child(3) .persona-avatar { background: rgba(200,169,110,0.12); }
+
+        @media (max-width: 900px) {
+            .gallery-section { padding: 48px 24px; }
+            .gallery-grid { grid-template-columns: 1fr; }
+            .video-section { padding: 0 24px 48px; }
+            .video-grid { grid-template-columns: 1fr; }
+            .details-grid { grid-template-columns: 1fr; }
+            .tech-grid { grid-template-columns: 1fr; }
+            .design-process { grid-template-columns: 1fr; }
+            .feature-grid { grid-template-columns: 1fr; }
+            .feature-card { flex-direction: column-reverse; gap: 20px; }
+            .feature-card-img { width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="back-nav">
+        <a href="index.html" class="back-link">← 返回作品集</a>
+        <div class="back-logo">吴金政 Merrick</div>
+    </nav>
+
+    <section class="project-hero">
+        <div class="project-hero-inner reveal">
+            <p class="project-hero-label" data-editable="text" data-edit-id="antarikha-hero-label">Concept Design · 2025</p>
+            <h1 data-editable="text" data-edit-id="antarikha-hero-title">Antarikha<br>两栖勘探无人机</h1>
+            <p class="project-hero-subtitle" data-editable="text" data-edit-id="antarikha-hero-subtitle">基于 Cyclo Rotor 推进系统的海空两用勘探无人机——灵感源自"飞鸟与鱼"，一套推进系统实现空中飞行与水下潜航无缝切换。</p>
+            <div class="project-hero-meta">
+                <div class="project-meta-item"><label>Category</label><span data-editable="text" data-edit-id="antarikha-meta-category">无人机 · 海空两栖</span></div>
+                <div class="project-meta-item"><label>Role</label><span data-editable="text" data-edit-id="antarikha-meta-role">概念设计 / 结构设计</span></div>
+                <div class="project-meta-item"><label>Year</label><span data-editable="text" data-edit-id="antarikha-meta-year">2025</span></div>
+                <div class="project-meta-item"><label>Type</label><span data-editable="text" data-edit-id="antarikha-meta-type">课题研究项目</span></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery -->
+    <section class="gallery-section">
+        <div class="gallery-hero reveal" data-index="0" data-editable="image" data-edit-id="antarikha-gallery-0">
+            <img src="images/antarikha-hero.webp" alt="雪山场景 · 海空两用勘探作业" loading="lazy" class="lazy-img">
+            <div class="gallery-caption" data-editable="text" data-edit-id="antarikha-gallery-caption-0">雪山场景 · 海空两用勘探作业</div>
+        </div>
+        <div class="gallery-grid reveal">
+            <div class="gallery-item" data-index="1" data-editable="image" data-edit-id="antarikha-gallery-1">
+                <img src="images/antarikha-front.webp" alt="正面视角 · 太阳能板与传感系统" loading="lazy" class="lazy-img">
+                <div class="gallery-caption" data-editable="text" data-edit-id="antarikha-gallery-caption-1">正面视角 · 太阳能板与传感系统</div>
+            </div>
+            <div class="gallery-item" data-index="2" data-editable="image" data-edit-id="antarikha-gallery-2">
+                <img src="images/antarikha-diagonal.webp" alt="斜侧视角 · 流线型机身轮廓" loading="lazy" class="lazy-img">
+                <div class="gallery-caption" data-editable="text" data-edit-id="antarikha-gallery-caption-2">斜侧视角 · 流线型机身轮廓</div>
+            </div>
+            <div class="gallery-item" data-index="3" data-editable="image" data-edit-id="antarikha-gallery-3">
+                <img src="images/antarikha-top.webp" alt="俯视视角 · Cyclo Rotor推进布局" loading="lazy" class="lazy-img">
+                <div class="gallery-caption" data-editable="text" data-edit-id="antarikha-gallery-caption-3">俯视视角 · Cyclo Rotor推进布局</div>
+            </div>
+            <div class="gallery-item" data-index="4" data-editable="image" data-edit-id="antarikha-gallery-4">
+                <img src="images/antarikha-side.webp" alt="侧面视角 · 涵道式旋翼结构" loading="lazy" class="lazy-img">
+                <div class="gallery-caption" data-editable="text" data-edit-id="antarikha-gallery-caption-4">侧面视角 · 涵道式旋翼结构</div>
+            </div>
+            <div class="gallery-item" data-index="5" data-editable="image" data-edit-id="antarikha-gallery-5" style="grid-column: 1/-1; aspect-ratio: 16/9;">
+                <img src="images/antarikha-scene.webp" alt="全景展示 · 未来勘探平台" loading="lazy" class="lazy-img">
+                <div class="gallery-caption" data-editable="text" data-edit-id="antarikha-gallery-caption-5">全景展示 · 未来勘探平台</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Videos -->
+    <section class="video-section">
+        <div class="reveal">
+            <div class="section-divider"></div>
+            <p class="section-label" style="color:#5b8ec9">Motion</p>
+            <h2 class="section-title-detail">动态<strong>展示</strong></h2>
+        </div>
+        <div class="video-grid reveal">
+            <div class="video-card">
+                <video src="images/antarikha-video-1.mp4" controls playsinline preload="metadata"></video>
+                <span class="video-label">Demo 01</span>
+            </div>
+            <div class="video-card">
+                <video src="images/antarikha-video-2.mp4" controls playsinline preload="metadata"></video>
+                <span class="video-label">Demo 02</span>
+            </div>
+            <div class="video-card">
+                <video src="images/antarikha-video-3.mp4" controls playsinline preload="metadata"></video>
+                <span class="video-label">Demo 03</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Design Details -->
+    <section class="content-section" id="details">
+        <div class="reveal">
+            <div class="section-divider"></div>
+            <p class="section-label" style="color:#5b8ec9">Design Details</p>
+            <h2 class="section-title-detail">设计<strong>细节</strong></h2>
+        </div>
+        <div class="details-grid reveal">
+            <div class="details-item">
+                <div class="details-item-img">
+                    <img src="images/antarikha-camera-detail.webp" alt="探测摄像头模组" loading="lazy" class="lazy-img">
+                </div>
+                <div class="details-item-info">
+                    <div class="details-item-title" data-editable="text" data-edit-id="antarikha-detail1-title">探测摄像头模组</div>
+                    <div class="details-item-desc" data-editable="text" data-edit-id="antarikha-detail1-desc">主摄像头+双辅助传感器，三向探测覆盖</div>
+                </div>
+            </div>
+            <div class="details-item">
+                <div class="details-item-img">
+                    <img src="images/antarikha-sensor-detail.webp" alt="前端传感阵列" loading="lazy" class="lazy-img">
+                </div>
+                <div class="details-item-info">
+                    <div class="details-item-title" data-editable="text" data-edit-id="antarikha-detail2-title">前端传感阵列</div>
+                    <div class="details-item-desc" data-editable="text" data-edit-id="antarikha-detail2-desc">多模态传感器集成，精密环境感知</div>
+                </div>
+            </div>
+            <div class="details-item">
+                <div class="details-item-img">
+                    <img src="images/antarikha-rotor-detail.webp" alt="Cyclo Rotor旋翼" loading="lazy" class="lazy-img">
+                </div>
+                <div class="details-item-info">
+                    <div class="details-item-title" data-editable="text" data-edit-id="antarikha-detail3-title">Cyclo Rotor 旋翼</div>
+                    <div class="details-item-desc" data-editable="text" data-edit-id="antarikha-detail3-desc">碳纤维桨叶+防滑纹理外环，双介质推进核心</div>
+                </div>
+            </div>
+            <div class="details-item">
+                <div class="details-item-img">
+                    <img src="images/antarikha-solar-detail.webp" alt="太阳能电池板" loading="lazy" class="lazy-img">
+                </div>
+                <div class="details-item-info">
+                    <div class="details-item-title" data-editable="text" data-edit-id="antarikha-detail4-title">太阳能电池板</div>
+                    <div class="details-item-desc" data-editable="text" data-edit-id="antarikha-detail4-desc">机身顶部集成光伏单元，空中持续补能</div>
+                </div>
+            </div>
+            <div class="details-item">
+                <div class="details-item-img">
+                    <img src="images/antarikha-structure-detail.webp" alt="镂空支撑结构" loading="lazy" class="lazy-img">
+                </div>
+                <div class="details-item-info">
+                    <div class="details-item-title" data-editable="text" data-edit-id="antarikha-detail5-title">镂空支撑结构</div>
+                    <div class="details-item-desc" data-editable="text" data-edit-id="antarikha-detail5-desc">轻量化镂空起落架，兼顾强度与减重</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technology Foundation -->
+    <section class="content-section" id="tech">
+        <div class="reveal">
+            <div class="section-divider"></div>
+            <p class="section-label" style="color:#5b8ec9">Technology Foundation</p>
+            <h2 class="section-title-detail">技术<strong>基础</strong></h2>
+        </div>
+        <div class="tech-grid reveal">
+            <div class="tech-card">
+                <div class="tech-card-icon">🛩️</div>
+                <h3 class="tech-card-title" data-editable="text" data-edit-id="antarikha-tech1-title">空中推进：Cyclo Rotor 矢量推进</h3>
+                <p data-editable="text" data-edit-id="antarikha-tech1-desc">基于奥地利 Cyclo 科技公司的矢量推进技术，Cyclo Rotor 可实现 360° 推力方向瞬时切换，悬停，前飞，侧飞均无需改变机体姿态。相比传统旋翼，更紧凑、更灵活，天然适合需要精准姿态控制的两栖场景。</p>
+            </div>
+            <div class="tech-card">
+                <div class="tech-card-icon">🌊</div>
+                <h3 class="tech-card-title" data-editable="text" data-edit-id="antarikha-tech2-title">水下推进：VSP 推进器改进</h3>
+                <p data-editable="text" data-edit-id="antarikha-tech2-desc">Cyclo Rotor 从轮船 VSP（Voith-Schneider Propeller）推进器改进而来。VSP 推进器已在船舶领域验证了水下矢量推进的可靠性——同一套机构在空中作为旋翼、在水中作为桨叶，实现推进系统的海空复用。</p>
+            </div>
+        </div>
+        <div class="market-insight reveal">
+            <div class="market-insight-title">💡 技术洞察</div>
+            <p data-editable="text" data-edit-id="antarikha-tech-insight">两栖无人机的核心挑战不是"能不能飞+能不能潜"，而是<strong>推进系统的海空复用</strong>。传统方案需要两套独立推进系统（旋翼+螺旋桨），导致结构复杂、重量翻倍。Cyclo Rotor 的独特优势在于<strong>一套机构双介质工作</strong>，从原理层面解决了两栖推进的工程难题。</p>
+        </div>
+    </section>
+
+    <!-- Design Process -->
+    <section class="content-section" id="process">
+        <div class="reveal">
+            <div class="section-divider"></div>
+            <p class="section-label" style="color:#5b8ec9">Design Process</p>
+            <h2 class="section-title-detail">设计<strong>推演</strong></h2>
+        </div>
+        <div class="design-process reveal">
+            <div class="process-card">
+                <div class="process-num">PHASE 01</div>
+                <h4 class="process-title" data-editable="text" data-edit-id="antarikha-process1-title">灵感：飞鸟与鱼</h4>
+                <p class="process-desc" data-editable="text" data-edit-id="antarikha-process1-desc">飞鸟掠过海面，鱼群穿梭水下——同一片空间，两种存在方式。设计灵感源于自然界的海空双栖生物，追求形态上对两种介质的兼容性。</p>
+            </div>
+            <div class="process-card">
+                <div class="process-num">PHASE 02</div>
+                <h4 class="process-title" data-editable="text" data-edit-id="antarikha-process2-title">转换结构构想</h4>
+                <p class="process-desc" data-editable="text" data-edit-id="antarikha-process2-desc">初期探索 Cyclo Rotor 如何在空中和水下两种介质间切换——桨叶角度、转速、密封方式的转换机构设计，确保切换过程快速可靠。</p>
+            </div>
+            <div class="process-card">
+                <div class="process-num">PHASE 03</div>
+                <h4 class="process-title" data-editable="text" data-edit-id="antarikha-process3-title">外观方案推敲</h4>
+                <p class="process-desc" data-editable="text" data-edit-id="antarikha-process3-desc">流线型机身兼顾空气动力学和水动力学，减少两种介质下的阻力。模块化结构便于维护和功能扩展，太阳能板提供备用能源。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features with images -->
+    <section class="content-section" id="features">
+        <div class="reveal">
+            <div class="section-divider"></div>
+            <p class="section-label" style="color:#5b8ec9">Design Highlights</p>
+            <h2 class="section-title-detail">设计<strong>亮点</strong></h2>
+        </div>
+        <div class="feature-grid reveal">
+            <div class="feature-card" data-editable="image" data-edit-id="antarikha-feat1">
+                <div class="feature-card-inner">
+                    <div class="feature-num">01</div>
+                    <h3 class="feature-title" data-editable="text" data-edit-id="antarikha-feat1-title">海空无缝切换</h3>
+                    <p class="feature-desc" data-editable="text" data-edit-id="antarikha-feat1-desc">Cyclo Rotor 推进系统在空中作为旋翼提供升力，入水后自动切换为水下推进模式。无需两套独立系统，结构精简、重量可控。</p>
+                    <div class="feature-specs">
+                        <span class="feature-spec">Cyclo Rotor</span>
+                        <span class="feature-spec">双介质推进</span>
+                        <span class="feature-spec">自动切换</span>
+                    </div>
+                </div>
+                <div class="feature-card-img">
+                    <img src="images/antarikha-hero.webp" alt="海空切换场景" loading="lazy" class="lazy-img">
+                </div>
+            </div>
+            <div class="feature-card" data-editable="image" data-edit-id="antarikha-feat2">
+                <div class="feature-card-inner">
+                    <div class="feature-num">02</div>
+                    <h3 class="feature-title" data-editable="text" data-edit-id="antarikha-feat2-title">多维度探测系统</h3>
+                    <p class="feature-desc" data-editable="text" data-edit-id="antarikha-feat2-desc">前后探测器 + 俯视探测器三维度覆盖，扩大探测领域。空中俯瞰大范围扫描，水下近距离精细勘探，一套平台完成双场景任务。</p>
+                    <div class="feature-specs">
+                        <span class="feature-spec">三向探测</span>
+                        <span class="feature-spec">空中扫描</span>
+                        <span class="feature-spec">水下勘探</span>
+                    </div>
+                </div>
+                <div class="feature-card-img">
+                    <img src="images/antarikha-camera-detail.webp" alt="探测摄像头模组" loading="lazy" class="lazy-img">
+                </div>
+            </div>
+            <div class="feature-card" data-editable="image" data-edit-id="antarikha-feat3">
+                <div class="feature-card-inner">
+                    <div class="feature-num">03</div>
+                    <h3 class="feature-title" data-editable="text" data-edit-id="antarikha-feat3-title">太阳能备用能源</h3>
+                    <p class="feature-desc" data-editable="text" data-edit-id="antarikha-feat3-desc">机身顶部集成太阳能板，在空中飞行时持续补充能源。延长续航时间，保障长时间勘探任务的能源安全。</p>
+                    <div class="feature-specs">
+                        <span class="feature-spec">太阳能板</span>
+                        <span class="feature-spec">能源补充</span>
+                        <span class="feature-spec">续航保障</span>
+                    </div>
+                </div>
+                <div class="feature-card-img">
+                    <img src="images/antarikha-solar-detail.webp" alt="太阳能板细节" loading="lazy" class="lazy-img">
+                </div>
+            </div>
+            <div class="feature-card" data-editable="image" data-edit-id="antarikha-feat4">
+                <div class="feature-card-inner">
+                    <div class="feature-num">04</div>
+                    <h3 class="feature-title" data-editable="text" data-edit-id="antarikha-feat4-title">流线型双效机身</h3>
+                    <p class="feature-desc" data-editable="text" data-edit-id="antarikha-feat4-desc">机身造型同时优化空气动力学和水动力学性能——空中减少风阻，水下降低水阻。形态源自"飞鸟与鱼"的自然仿生。</p>
+                    <div class="feature-specs">
+                        <span class="feature-spec">仿生设计</span>
+                        <span class="feature-spec">双效优化</span>
+                        <span class="feature-spec">流线型</span>
+                    </div>
+                </div>
+                <div class="feature-card-img">
+                    <img src="images/antarikha-diagonal.webp" alt="流线型机身" loading="lazy" class="lazy-img">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pain Points -->
+    <section class="content-section" id="painpoints">
+        <div class="reveal">
+            <div class="section-divider"></div>
+            <p class="section-label" style="color:#5b8ec9">Problems & Solutions</p>
+            <h2 class="section-title-detail">问题与<strong>设计回应</strong></h2>
+        </div>
+        <div class="pain-layout reveal">
+            <div class="pain-column">
+                <h3 style="color:var(--red)">🔥 拟解决问题</h3>
+                <div class="pain-list">
+                    <div class="pain-item problem">
+                        <div class="pain-item-num">PROBLEM 01</div>
+                        <h4 class="pain-item-title" data-editable="text" data-edit-id="antarikha-pain1-title">海空两栖推进系统复用</h4>
+                        <p class="pain-item-desc" data-editable="text" data-edit-id="antarikha-pain1-desc">传统方案需要两套独立推进系统，导致结构冗余、重量大、可靠性低。如何用一套系统实现双介质推进是核心工程难题。</p>
+                    </div>
+                    <div class="pain-item problem">
+                        <div class="pain-item-num">PROBLEM 02</div>
+                        <h4 class="pain-item-title" data-editable="text" data-edit-id="antarikha-pain2-title">海空转换的结构实现</h4>
+                        <p class="pain-item-desc" data-editable="text" data-edit-id="antarikha-pain2-desc">从空中到水下的转换过程涉及密封、浮力、推进模式切换等多个变量，需要结构设计保证转换过程快速、可靠、可逆。</p>
+                    </div>
+                    <div class="pain-item problem">
+                        <div class="pain-item-num">PROBLEM 03</div>
+                        <h4 class="pain-item-title" data-editable="text" data-edit-id="antarikha-pain3-title">市场空白：无成熟同类产品</h4>
+                        <p class="pain-item-desc" data-editable="text" data-edit-id="antarikha-pain3-desc">目前市场上尚无引用 Cyclo Rotor 推进系统的无人机产品，海空两栖成熟产品极少。需要从零构建设计语言和使用场景。</p>
+                    </div>
+                </div>
+            </div>
+            <div class="pain-bridge">
+                <div class="pain-bridge-line"></div>
+                <div class="pain-bridge-arrow">→</div>
+                <div class="pain-bridge-line"></div>
+            </div>
+            <div class="pain-column">
+                <h3 style="color:var(--green)">✅ 设计回应</h3>
+                <div class="pain-list">
+                    <div class="pain-item solution">
+                        <div class="pain-item-num">SOLVE 01</div>
+                        <h4 class="pain-item-title" data-editable="text" data-edit-id="antarikha-solve1-title">Cyclo Rotor 双介质推进</h4>
+                        <p class="pain-item-desc" data-editable="text" data-edit-id="antarikha-solve1-desc">利用 Cyclo Rotor 矢量推进特性，空中作为旋翼提供升力和姿态控制，水中切换为桨叶推进。一套机构、两种模式，从原理层面解决推进复用。</p>
+                    </div>
+                    <div class="pain-item solution">
+                        <div class="pain-item-num">SOLVE 02</div>
+                        <h4 class="pain-item-title" data-editable="text" data-edit-id="antarikha-solve2-title">模块化转换结构</h4>
+                        <p class="pain-item-desc" data-editable="text" data-edit-id="antarikha-solve2-desc">设计可调节桨叶角度和密封舱体，海空转换时桨叶自动调整攻角和转速。机身密封结构保障电子设备水下安全，浮力设计支持水面起降。</p>
+                    </div>
+                    <div class="pain-item solution">
+                        <div class="pain-item-num">SOLVE 03</div>
+                        <h4 class="pain-item-title" data-editable="text" data-edit-id="antarikha-solve3-title">全场景勘探平台定位</h4>
+                        <p class="pain-item-desc" data-editable="text" data-edit-id="antarikha-solve3-desc">定位为多地形、多场景勘探平台——海洋勘测、灾后搜救、水下巡检、空中侦察。三向探测系统 + 太阳能备用能源，覆盖长时间多场景任务需求。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="summary-section">
+        <div class="summary-inner reveal">
+            <p class="section-label" style="color:#5b8ec9">Project Summary</p>
+            <h2 class="summary-title" data-editable="text" data-edit-id="antarikha-summary-title">一套推进，<strong>两种世界</strong></h2>
+            <p class="summary-desc" data-editable="text" data-edit-id="antarikha-summary-desc">Antarikha 不只是概念——它是对 Cyclo Rotor 推进系统在无人机领域应用的可行性探索。从"飞鸟与鱼"的自然灵感出发，用工程逻辑回答"海空两栖"的设计命题。</p>
+            <div class="summary-tags">
+                <span class="summary-tag" data-editable="text" data-edit-id="antarikha-summary-tag1">概念设计</span>
+                <span class="summary-tag" data-editable="text" data-edit-id="antarikha-summary-tag2">结构设计</span>
+                <span class="summary-tag" data-editable="text" data-edit-id="antarikha-summary-tag3">Cyclo Rotor</span>
+                <span class="summary-tag" data-editable="text" data-edit-id="antarikha-summary-tag4">海空两栖</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Navigation -->
+    <nav class="project-nav">
+        <a href="project-pet-dryer.html" class="project-nav-link prev">
+            <span class="project-nav-icon">←</span>
+            <div>
+                <div class="project-nav-label">上一个项目</div>
+                <div class="project-nav-title">智宠烘干系统</div>
+            </div>
+        </a>
+        <div class="project-nav-center"><span>Antarikha 无人机</span></div>
+        <a href="project-dmkr-fpv.html" class="project-nav-link next">
+            <div>
+                <div class="project-nav-label">下一个项目</div>
+                <div class="project-nav-title">DMKR FPV 眼镜</div>
+            </div>
+            <span class="project-nav-icon">→</span>
+        </a>
+    </nav>
+
+    <footer class="footer">
+        <span>© 2026 吴金政 Merrick. All rights reserved.</span>
+        <div class="footer-icons">
+            <a href="mailto:2521796885@qq.com" class="footer-icon" title="发送邮件">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+                </svg>
+                <span>2521796885@qq.com</span>
+            </a>
+            <a href="#" class="footer-icon" title="微信">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                </svg>
+                <span>WeChat</span>
+            </a>
+        </div>
+    </footer>
+
+    <button class="back-to-top" id="backToTop" aria-label="回到顶部">↑</button>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <button class="lightbox-close" id="lightboxClose" aria-label="关闭">✕</button>
+        <button class="lightbox-prev" id="lightboxPrev" aria-label="上一张">‹</button>
+        <button class="lightbox-next" id="lightboxNext" aria-label="下一张">›</button>
+        <div class="lightbox-img-wrap">
+            <img class="lightbox-img" id="lightboxImg" src="" alt="">
+        </div>
+        <p class="lightbox-caption" id="lightboxCaption"></p>
+        <div class="lightbox-counter" id="lightboxCounter"></div>
+        <div class="lightbox-hint">← 左右滑动切换 →</div>
+    </div>
+
+    <script>
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+        }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+        document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+        window.addEventListener('scroll', () => {
+            document.getElementById('backToTop').classList.toggle('visible', window.scrollY > window.innerHeight);
+        });
+        document.getElementById('backToTop').addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        const lazyObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('loaded');
+                    lazyObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.05 });
+        document.querySelectorAll('.lazy-img').forEach(img => {
+            if (img.complete) { img.classList.add('loaded'); }
+            else { lazyObserver.observe(img); }
+        });
+
+        /* Lightbox — all gallery images on this page */
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightboxImg');
+        const lightboxCaption = document.getElementById('lightboxCaption');
+        const lightboxCounter = document.getElementById('lightboxCounter');
+        const galleryItems = document.querySelectorAll('.gallery-hero, .gallery-item');
+        let currentIndex = 0;
+
+        function openLightbox(index) {
+            currentIndex = index;
+            updateLightbox();
+            lightbox.classList.add('open');
+            document.body.style.overflow = 'hidden';
+        }
+        function closeLightbox() {
+            lightbox.classList.remove('open');
+            document.body.style.overflow = '';
+        }
+        function updateLightbox() {
+            const item = galleryItems[currentIndex];
+            const img = item.querySelector('img');
+            lightboxImg.src = img.src;
+            lightboxImg.alt = img.alt;
+            const caption = item.querySelector('.gallery-caption');
+            lightboxCaption.textContent = caption ? caption.textContent : (img.alt || '');
+            lightboxCounter.textContent = (currentIndex + 1) + ' / ' + galleryItems.length;
+            document.getElementById('lightboxPrev').disabled = currentIndex === 0;
+            document.getElementById('lightboxNext').disabled = currentIndex === galleryItems.length - 1;
+        }
+        function prevImage() { if (currentIndex > 0) { currentIndex--; updateLightbox(); } }
+        function nextImage() { if (currentIndex < galleryItems.length - 1) { currentIndex++; updateLightbox(); } }
+
+        galleryItems.forEach((item, i) => { item.addEventListener('click', () => openLightbox(i)); });
+        document.getElementById('lightboxClose').addEventListener('click', closeLightbox);
+        document.getElementById('lightboxPrev').addEventListener('click', prevImage);
+        document.getElementById('lightboxNext').addEventListener('click', nextImage);
+        lightbox.addEventListener('click', (e) => { if (e.target === lightbox) closeLightbox(); });
+
+        document.addEventListener('keydown', (e) => {
+            if (!lightbox.classList.contains('open')) return;
+            if (e.key === 'Escape') closeLightbox();
+            if (e.key === 'ArrowLeft') prevImage();
+            if (e.key === 'ArrowRight') nextImage();
+        });
+
+        let touchStartX = 0;
+        lightbox.addEventListener('touchstart', (e) => { touchStartX = e.touches[0].clientX; }, { passive: true });
+        lightbox.addEventListener('touchend', (e) => {
+            const dx = e.changedTouches[0].clientX - touchStartX;
+            if (Math.abs(dx) > 50) { if (dx < 0) nextImage(); else prevImage(); }
+        }, { passive: true });
+    </script>
+    <script src="editor.js"></script>
+</body>
+</html>

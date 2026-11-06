@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="icon" href="favicon.png" type="image/png">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <title>智宠未来 · 智能烘干系统 | 吴金政 Merrick Portfolio</title>
+    <meta name="description" content="智宠未来智能烘干器工业设计 — 零压力设计、全方位送风、温控坐垫、底部空气循环、呼吸灯状态显示，重新定义宠物护理的科技美学。">
+    <meta property="og:title" content="智宠未来 · 智能烘干系统 | 吴金政 Merrick">
+    <meta property="og:description" content="零压力设计 · 全方位送风 · 温控坐垫 · 底部循环">
+    <meta property="og:type" content="article">
+        <meta property="og:url" content="https://aoluae.github.io/merrick-portfolio/project-pet-dryer.html">
+    <meta property="og:image" content="https://aoluae.github.io/merrick-portfolio/images/dryer-product-front.webp">
+    <meta property="og:locale" content="zh_CN">
+    <link rel="canonical" href="https://aoluae.github.io/merrick-portfolio/project-pet-dryer.html">
+    <link rel="stylesheet" href="common.css">
+    <style>
+        :root { --accent: #6ec89a; --accent-light: rgba(110,200,154,0.08); --green: #4a9e6e; --red: #d45555; --blue: #5b8ec9; }
+        .project-hero::before {
+            background: radial-gradient(circle, rgba(110,200,154,0.08) 0%, transparent 60%);
+        }
+        .project-hero-label { color: #6ec89a !important; }
+        .section-label { color: #6ec89a !important; }
+        .market-insight { border-left-color: #6ec89a; background: rgba(110,200,154,0.08); }
+        .persona-card:hover { border-color: #6ec89a; box-shadow: 0 8px 40px rgba(110,200,154,0.08); }
+        .persona-tagline { color: #6ec89a !important; }
+        .summary-tag:hover { border-color: #6ec89a; color: #6ec89a; }
+        .skill-card:hover { border-color: #6ec89a; box-shadow: 0 8px 40px rgba(110,200,154,0.08); }
+        .project-nav-link:hover { color: #6ec89a; border-color: #6ec89a; background: rgba(110,200,154,0.08); }
+
+        /* Competitive grid */
+        .compete-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-bottom: 48px; }
+        .compete-card { padding: 28px 24px; border-radius: var(--radius); background: var(--bg-white); border: 1px solid var(--border); transition: var(--transition); }
+        .compete-card:hover { border-color: #6ec89a; }
+        .compete-card-brand { font-size: 14px; font-weight: 600; margin-bottom: 4px; }
+        .compete-card-model { font-size: 11px; color: var(--text-dim); margin-bottom: 14px; }
+        .compete-card p { font-size: 12px; color: var(--text-secondary); line-height: 1.7; }
+        .compete-card.highlight { border-color: #6ec89a; background: rgba(110,200,154,0.08); }
+        .compete-card.highlight .compete-card-brand { color: #6ec89a; }
+
+        /* Journey */
+        .journey-section { padding: 80px 64px; max-width: 1400px; margin: 0 auto; }
+        .journey-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; }
+        .journey-step { padding: 28px 20px; border-radius: var(--radius); background: var(--bg-white); border: 1px solid var(--border); text-align: center; }
+        .journey-step-num { font-size: 11px; letter-spacing: 1px; color: #6ec89a; font-weight: 600; margin-bottom: 8px; }
+        .journey-step-title { font-size: 14px; font-weight: 600; margin-bottom: 8px; }
+        .journey-step-desc { font-size: 12px; color: var(--text-secondary); line-height: 1.7; }
+        .journey-step .emotion { font-size: 24px; margin-bottom: 8px; }
+
+        /* Feature cards */
+        .feature-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+        .feature-card { padding: 0; border-radius: var(--radius); background: var(--bg-dark); color: var(--text-light); position: relative; overflow: hidden; display: flex; align-items: stretch; }
+        .feature-card::before { content: ''; position: absolute; top: -50%; right: -30%; width: 300px; height: 300px; background: radial-gradient(circle, rgba(110,200,154,0.06) 0%, transparent 60%); pointer-events: none; }
+        .feature-card-inner { flex: 1; padding: 40px 32px; display: flex; flex-direction: column; justify-content: center; }
+        .feature-card-img { width: 180px; min-height: 100%; object-fit: cover; flex-shrink: 0; }
+        .feature-num { font-size: 48px; font-weight: 200; color: #6ec89a; opacity: 0.3; margin-bottom: 16px; }
+        .feature-title { font-size: 18px; font-weight: 600; margin-bottom: 12px; }
+        .feature-desc { font-size: 13px; color: var(--text-dim); line-height: 1.8; margin-bottom: 20px; }
+        .feature-specs { display: flex; gap: 12px; flex-wrap: wrap; }
+        .feature-spec { padding: 6px 14px; border-radius: 100px; border: 1px solid rgba(255,255,255,0.15); font-size: 12px; color: var(--text-dim); }
+
+        /* Product detail grid */
+        .product-detail-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            margin-top: 32px;
+        }
+        .product-detail-card {
+            background: var(--bg-card);
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid var(--border-light);
+            transition: transform 0.3s ease;
+        }
+        .product-detail-card:hover { transform: translateY(-2px); }
+        .product-detail-card img {
+            width: 100%;
+            display: block;
+        }
+        .product-detail-card .detail-label {
+            padding: 16px 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            border-top: 1px solid var(--border-light);
+        }
+
+        /* Size lineup */
+        .size-lineup {
+            display: flex;
+            gap: 32px;
+            margin-top: 32px;
+            align-items: flex-end;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .size-item {
+            text-align: center;
+            flex: 0 0 auto;
+        }
+        .size-item img {
+            max-height: 260px;
+            border-radius: 16px;
+            margin-bottom: 12px;
+        }
+        .size-item .size-label {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+        .size-item .size-desc {
+            font-size: 0.8rem;
+            color: var(--text-tertiary);
+            margin-top: 4px;
+        }
+
+        .persona-card:nth-child(1) .persona-avatar { background: rgba(110,200,154,0.12); }
+        .persona-card:nth-child(2) .persona-avatar { background: rgba(91,142,201,0.12); }
+        .persona-card:nth-child(3) .persona-avatar { background: rgba(200,169,110,0.12); }
+
+        .gallery-item { cursor: pointer; }
+        .gallery-item img { transition: transform 0.6s ease, opacity 0.5s ease; opacity: 0; }
+        .gallery-item img.loaded { opacity: 1; }
+
+        @media (max-width: 900px) {
+            .compete-grid { grid-template-columns: 1fr 1fr; }
+            .journey-grid { grid-template-columns: 1fr 1fr; }
+            .feature-grid { grid-template-columns: 1fr; }
+            .feature-card { flex-direction: column; }
+            .feature-card-img { width: 100%; height: 160px; }
+            .journey-section { padding: 60px 24px; }
+            .product-detail-grid { grid-template-columns: 1fr; }
+            .size-lineup { gap: 16px; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="back-nav">
+        <a href="index.html" class="back-link">← 返回作品集</a>
+        <div class="back-logo">吴金政 Merrick</div>
+    </nav>
+
+    <section class="project-hero" style="background: linear-gradient(135deg, #1a2a1a, #0d1a0d);">
+        <div class="project-hero-inner reveal">
+            <p class="project-hero-label" data-editable="text" data-edit-id="dryer-hero-label">Product ID Design · 2025</p>
+            <h1 data-editable="text" data-edit-id="dryer-hero-title">智宠未来<br>零压力智能烘干系统</h1>
+            <p class="project-hero-subtitle" data-editable="text" data-edit-id="dryer-hero-subtitle">重新定义宠物护理的科技美学——全方位送风烘干、温控坐垫、底部空气循环，让宠物从"躲藏发抖"到"安心享受"。</p>
+            <div class="project-hero-meta">
+                <div class="project-meta-item"><label>Category</label><span data-editable="text" data-edit-id="dryer-meta-category">宠物护理</span></div>
+                <div class="project-meta-item"><label>Role</label><span data-editable="text" data-edit-id="dryer-meta-role">产品 ID 设计 / 竞品分析</span></div>
+                <div class="project-meta-item"><label>Year</label><span data-editable="text" data-edit-id="dryer-meta-year">2025</span></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="gallery-section">
+        <div class="gallery-grid">
+            <div class="gallery-item" data-index="0" data-editable="image" data-edit-id="dryer-gallery-0">
+                <img
+                    src="images/dryer-product-front.webp"
+                    alt="产品主视觉 · 蛋形智能烘干箱"
+                    loading="lazy" class="lazy-img"
+                    onerror="this.src=''; this.parentElement.style.background='linear-gradient(145deg,#1a2a1a,#0d1a0d)'; this.parentElement.innerHTML='<div style=display:flex;align-items:center;justify-content:center;height:100%;font-size:48px;opacity:0.3>🐾</div>';"
+                >
+                <div class="gallery-caption" data-editable="text" data-edit-id="dryer-gallery-caption-0">产品主视觉 · 蛋形智能烘干箱</div>
+            </div>
+            <div class="gallery-item" data-index="1" data-editable="image" data-edit-id="dryer-gallery-1">
+                <img
+                    src="images/dryer-trio-scene.webp"
+                    alt="三尺寸系列 · 大/中/迷你 三款同框"
+                    loading="lazy" class="lazy-img"
+                    onerror="this.src=''; this.parentElement.style.background='linear-gradient(145deg,#1a2a1a,#0d1a0d)'; this.parentElement.innerHTML='<div style=display:flex;align-items:center;justify-content:center;height:100%;font-size:48px;opacity:0.3>🐱</div>';"
+                >
+                <div class="gallery-caption" data-editable="text" data-edit-id="dryer-gallery-caption-1">三尺寸系列 · 大/中/迷你 三款同框</div>
+            </div>
+            <div class="gallery-item" data-index="2" data-editable="image" data-edit-id="dryer-gallery-2">
+                <img
+                    src="images/dryer-product-side.webp"
+                    alt="产品侧视 · 银色包边与氛围灯带细节"
+                    loading="lazy" class="lazy-img"
+                    onerror="this.src=''; this.parentElement.style.background='linear-gradient(145deg,#1a2a1a,#0d1a0d)'; this.parentElement.innerHTML='<div style=display:flex;align-items:center;justify-content:center;height:100%;font-size:48px;opacity:0.3>💡</div>';"
+                >
+                <div class="gallery-caption" data-editable="text" data-edit-id="dryer-gallery-caption-2">产品侧视 · 银色包边与氛围灯带细节</div>
+            </div>
+            <div class="gallery-item" data-index="3" data-editable="image" data-edit-id="dryer-gallery-3">
+                <img
+                    src="images/dryer-cabin-view.webp"
+                    alt="舱体透视 · 透气孔与蓝色软垫"
+                    loading="lazy" class="lazy-img"
+                    onerror="this.src=''; this.parentElement.style.background='linear-gradient(145deg,#1a2a1a,#0d1a0d)'; this.parentElement.innerHTML='<div style=display:flex;align-items:center;justify-content:center;height:100%;font-size:48px;opacity:0.3>🔍</div>';"
+                >
+                <div class="gallery-caption" data-editable="text" data-edit-id="dryer-gallery-caption-3">舱体透视 · 透气孔与蓝色软垫</div>
+            </div>
+            <div class="gallery-item" data-index="4" data-editable="image" data-edit-id="dryer-gallery-4">
+                <img
+                    src="images/dryer-trio-lineup.webp"
+                    alt="产品系列 · 蓝粉渐变底座搭配原木支脚"
+                    loading="lazy" class="lazy-img"
+                    onerror="this.src=''; this.parentElement.style.background='linear-gradient(145deg,#1a2a1a,#0d1a0d)'; this.parentElement.innerHTML='<div style=display:flex;align-items:center;justify-content:center;height:100%;font-size:48px;opacity:0.3>🐾</div>';"
+                >
+                <div class="gallery-caption" data-editable="text" data-edit-id="dryer-gallery-caption-4">产品系列 · 蓝粉渐变底座搭配原木支脚</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Design Details -->
+    <section class="content-section" id="product-design">
+        <div class="reveal">
+            <div class="section-divider" style="background:#6ec89a"></div>
+            <p class="section-label" style="color:#6ec89a">Product Details</p>
+            <h2 class="section-title-detail">产品<strong>细节</strong></h2>
+        </div>
+        <div class="product-detail-grid reveal">
+            <div class="product-detail-card">
+                <img src="images/dryer-vent-detail.jpg" alt="透气孔细节" loading="lazy" class="lazy-img"
+                    onerror="this.parentElement.style.background='linear-gradient(145deg,#e8f0e8,#d0e0d0)'; this.style.display='none';">
+                <div class="detail-label" data-editable="text" data-edit-id="dryer-detail-label-1">透气孔设计 · 椭圆形镂空均匀分布，保证舱内空气流通</div>
+            </div>
+            <div class="product-detail-card">
+                <img src="images/dryer-interior-detail.jpg" alt="舱内视角" loading="lazy" class="lazy-img"
+                    onerror="this.parentElement.style.background='linear-gradient(145deg,#e8f0e8,#d0e0d0)'; this.style.display='none';">
+                <div class="detail-label" data-editable="text" data-edit-id="dryer-detail-label-2">舱内视角 · 蓝色软垫贴合弧形底面，宠物舒适趴卧</div>
+            </div>
+            <div class="product-detail-card">
+                <img src="images/dryer-product-side.webp" alt="银色包边" loading="lazy" class="lazy-img"
+                    onerror="this.parentElement.style.background='linear-gradient(145deg,#e8f0e8,#d0e0d0)'; this.style.display='none';">
+                <div class="detail-label" data-editable="text" data-edit-id="dryer-detail-label-3">银色包边 · 舱门金属饰边提升品质感，菱形透气格栅</div>
+            </div>
+            <div class="product-detail-card">
+                <img src="images/dryer-product-front.webp" alt="触控显示屏" loading="lazy" class="lazy-img"
+                    onerror="this.parentElement.style.background='linear-gradient(145deg,#e8f0e8,#d0e0d0)'; this.style.display='none';">
+                <div class="detail-label" data-editable="text" data-edit-id="dryer-detail-label-4">触控交互 · 黑色圆角显示屏 + 底部蓝色氛围灯带</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Size Lineup -->
+    <section class="content-section" id="size-lineup">
+        <div class="reveal">
+            <div class="section-divider" style="background:#6ec89a"></div>
+            <p class="section-label" style="color:#6ec89a">Size Lineup</p>
+            <h2 class="section-title-detail">尺寸<strong>系列</strong></h2>
+        </div>
+        <div class="reveal">
+            <p style="color:var(--text-secondary);max-width:720px;line-height:1.8;margin-bottom:12px;" data-editable="text" data-edit-id="dryer-size-intro">针对不同体型宠物和使用场景，提供大号、标准、迷你三款尺寸。统一蛋形设计语言，搭配蓝/粉渐变底座与原木支脚，兼顾科技感与家居美学。</p>
+            <div style="text-align:center;margin-top:32px;">
+                <img src="images/dryer-trio-lineup.webp" alt="三尺寸产品系列" style="max-width:100%;border-radius:16px;box-shadow:0 8px 32px rgba(0,0,0,0.06);" loading="lazy" class="lazy-img"
+                    onerror="this.style.display='none';">
+            </div>
+        </div>
+    </section>
+
+    <!-- Competitor Analysis -->
+    <section class="content-section" id="compete">
+        <div class="reveal">
+            <div class="section-divider" style="background:#6ec89a"></div>
+            <p class="section-label" style="color:#6ec89a">Competitor Analysis</p>
+            <h2 class="section-title-detail">竞品<strong>分析</strong></h2>
+        </div>
+        <div class="compete-grid reveal">
+            <div class="compete-card">
+                <h3 class="compete-card-brand" data-editable="text" data-edit-id="dryer-compete1-brand">鸟语花香</h3>
+                <p class="compete-card-model" data-editable="text" data-edit-id="dryer-compete1-model">HGX60-001</p>
+                <p data-editable="text" data-edit-id="dryer-compete1-desc">62L 大空间容量，发热组件外置设计降低噪音。支持立体风幕全身烘干，配有隔离托盘 + 毛发滤网，清洁支持水洗或拆消毒。</p>
+            </div>
+            <div class="compete-card">
+                <h3 class="compete-card-brand" data-editable="text" data-edit-id="dryer-compete2-brand">小佩</h3>
+                <p class="compete-card-model" data-editable="text" data-edit-id="dryer-compete2-model">39°舱体</p>
+                <p data-editable="text" data-edit-id="dryer-compete2-desc">立体式烘干做到速干与柔和兼顾。4 面循环换气，适用于多宠家庭。面板智能化程度较高，但底部出风覆盖率仅约 75%。</p>
+            </div>
+            <div class="compete-card">
+                <h3 class="compete-card-brand" data-editable="text" data-edit-id="dryer-compete3-brand">霍曼</h3>
+                <p class="compete-card-model" data-editable="text" data-edit-id="dryer-compete3-model">PD50</p>
+                <p data-editable="text" data-edit-id="dryer-compete3-desc">50L 内部空间，45min 快干 + 300W 负离子，噪音控制在 40dB。10 重安全防护，双 U 型设计。U 型底部出风方式提升覆盖率。</p>
+            </div>
+            <div class="compete-card highlight">
+                <h3 class="compete-card-brand" data-editable="text" data-edit-id="dryer-compete4-brand">智宠未来</h3>
+                <p class="compete-card-model" data-editable="text" data-edit-id="dryer-compete4-model">DMKR 设计方案</p>
+                <p data-editable="text" data-edit-id="dryer-compete4-desc">全方位送风 + 底部空气循环 + 温控坐垫 + 工作状态呼吸灯。零压力设计理念，解决竞品"烘干效率高但宠物焦虑"的核心体验缺口。</p>
+            </div>
+        </div>
+        <div class="market-insight reveal">
+            <div class="market-insight-title">💡 竞品洞察</div>
+            <p data-editable="text" data-edit-id="dryer-market-insight">现有竞品都在卷"烘干效率"和"空间大小"，但忽略了最核心的体验——<strong>宠物愿不愿意待在里面</strong>。高温闷热、噪音惊吓、视觉封闭是三大焦虑源。智宠未来的差异化策略是：不只烘干宠物，更要<strong>让宠物愿意待在里面</strong>。</p>
+        </div>
+    </section>
+
+    <!-- User Journey -->
+    <section class="journey-section" id="journey">
+        <div class="reveal">
+            <div class="section-divider" style="background:#6ec89a"></div>
+            <p class="section-label" style="color:#6ec89a">User Journey</p>
+            <h2 class="section-title-detail">用户旅程<strong>地图</strong></h2>
+            <p style="font-size:14px;color:var(--text-secondary);margin-bottom:48px;">从焦虑到自豪的情绪转化链</p>
+        </div>
+        <div class="journey-grid reveal">
+            <div class="journey-step">
+                <div class="emotion">😰</div>
+                <div class="journey-step-num">STEP 01</div>
+                <h4 class="journey-step-title" data-editable="text" data-edit-id="dryer-journey1-title">需求唤醒</h4>
+                <p class="journey-step-desc" data-editable="text" data-edit-id="dryer-journey1-desc">发现宠物洗澡后发抖/躲藏，内心焦急不安</p>
+            </div>
+            <div class="journey-step">
+                <div class="emotion">🤔</div>
+                <div class="journey-step-num">STEP 02</div>
+                <h4 class="journey-step-title" data-editable="text" data-edit-id="dryer-journey2-title">产品研究</h4>
+                <p class="journey-step-desc" data-editable="text" data-edit-id="dryer-journey2-desc">对比淘宝京东产品参数，查看买家秀与差评，疑虑重重</p>
+            </div>
+            <div class="journey-step">
+                <div class="emotion">😮</div>
+                <div class="journey-step-num">STEP 03</div>
+                <h4 class="journey-step-title" data-editable="text" data-edit-id="dryer-journey3-title">开箱体验</h4>
+                <p class="journey-step-desc" data-editable="text" data-edit-id="dryer-journey3-desc">组装设备首次使用，惊喜与紧张并存</p>
+            </div>
+            <div class="journey-step">
+                <div class="emotion">😊</div>
+                <div class="journey-step-num">STEP 04</div>
+                <h4 class="journey-step-title" data-editable="text" data-edit-id="dryer-journey4-title">日常使用</h4>
+                <p class="journey-step-desc" data-editable="text" data-edit-id="dryer-journey4-desc">每周烘干+消毒护理成为习惯，宠物不再抗拒</p>
+            </div>
+            <div class="journey-step">
+                <div class="emotion">🥰</div>
+                <div class="journey-step-num">STEP 05</div>
+                <h4 class="journey-step-title" data-editable="text" data-edit-id="dryer-journey5-title">口碑传播</h4>
+                <p class="journey-step-desc" data-editable="text" data-edit-id="dryer-journey5-desc">主动拍摄萌宠烘干视频分享，从焦虑变为自豪</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section class="content-section" id="features">
+        <div class="reveal">
+            <div class="section-divider" style="background:#6ec89a"></div>
+            <p class="section-label" style="color:#6ec89a">Design Highlights</p>
+            <h2 class="section-title-detail">设计<strong>亮点</strong></h2>
+        </div>
+        <div class="feature-grid reveal">
+            <div class="feature-card" data-editable="image" data-edit-id="dryer-feat1">
+                <div class="feature-card-inner">
+                    <div class="feature-num">01</div>
+                    <h3 class="feature-title" data-editable="text" data-edit-id="dryer-feat1-title">全方位送风烘干</h3>
+                    <p class="feature-desc" data-editable="text" data-edit-id="dryer-feat1-desc">多角度出风口设计，风幕包裹全身。不是对着一个方向猛吹，而是让温暖气流均匀环绕，宠物体感舒适不惊吓。</p>
+                    <div class="feature-specs">
+                        <span class="feature-spec">立体风幕</span>
+                        <span class="feature-spec">全方位出风</span>
+                        <span class="feature-spec">柔风模式</span>
+                    </div>
+                </div>
+                <img class="feature-card-img" src="images/dryer-cabin-view.webp" alt="全方位送风烘干" loading="lazy" class="lazy-img">
+            </div>
+            <div class="feature-card" data-editable="image" data-edit-id="dryer-feat2">
+                <div class="feature-card-inner">
+                    <div class="feature-num">02</div>
+                    <h3 class="feature-title" data-editable="text" data-edit-id="dryer-feat2-title">底部空气循环</h3>
+                    <p class="feature-desc" data-editable="text" data-edit-id="dryer-feat2-desc">底部进风与出风形成完整循环，避免热空气堆积导致局部过热。持续换气保证舱内空气清新，减少宠物闷热不适。</p>
+                    <div class="feature-specs">
+                        <span class="feature-spec">底部循环</span>
+                        <span class="feature-spec">持续换气</span>
+                        <span class="feature-spec">温控均匀</span>
+                    </div>
+                </div>
+                <img class="feature-card-img" src="images/dryer-product-side.webp" alt="底部空气循环" loading="lazy" class="lazy-img">
+            </div>
+            <div class="feature-card" data-editable="image" data-edit-id="dryer-feat3">
+                <div class="feature-card-inner">
+                    <div class="feature-num">03</div>
+                    <h3 class="feature-title" data-editable="text" data-edit-id="dryer-feat3-title">温控坐垫</h3>
+                    <p class="feature-desc" data-editable="text" data-edit-id="dryer-feat3-desc">底部坐垫独立温控，保持 39° 恒温舒适区间。宠物脚掌和腹部最敏感的部位得到持续温暖，从身体层面缓解焦虑。</p>
+                    <div class="feature-specs">
+                        <span class="feature-spec">39°恒温</span>
+                        <span class="feature-spec">独立温控</span>
+                        <span class="feature-spec">触感舒适</span>
+                    </div>
+                </div>
+                <img class="feature-card-img" src="images/dryer-interior-detail.jpg" alt="温控坐垫" loading="lazy" class="lazy-img">
+            </div>
+            <div class="feature-card" data-editable="image" data-edit-id="dryer-feat4">
+                <div class="feature-card-inner">
+                    <div class="feature-num">04</div>
+                    <h3 class="feature-title" data-editable="text" data-edit-id="dryer-feat4-title">工作状态呼吸灯</h3>
+                    <p class="feature-desc" data-editable="text" data-edit-id="dryer-feat4-desc">外部呼吸灯实时显示工作状态，主人一眼可知烘干进度。柔和灯光不惊扰宠物，夜间使用也安心。</p>
+                    <div class="feature-specs">
+                        <span class="feature-spec">状态可视</span>
+                        <span class="feature-spec">柔光不扰</span>
+                        <span class="feature-spec">夜间友好</span>
+                    </div>
+                </div>
+                <img class="feature-card-img" src="images/dryer-product-front.webp" alt="工作状态呼吸灯" loading="lazy" class="lazy-img">
+            </div>
+        </div>
+    </section>
+
+    <!-- Pain Points -->
+    <section class="content-section" id="painpoints">
+        <div class="reveal">
+            <div class="section-divider" style="background:#6ec89a"></div>
+            <p class="section-label" style="color:#6ec89a">Pain Points & Solutions</p>
+            <h2 class="section-title-detail">痛点与<strong>设计回应</strong></h2>
+        </div>
+        <div class="pain-layout reveal">
+            <div class="pain-column">
+                <h3 style="color:var(--red)">🔥 用户痛点</h3>
+                <div class="pain-list">
+                    <div class="pain-item problem">
+                        <div class="pain-item-num">PAIN 01</div>
+                        <h4 class="pain-item-title" data-editable="text" data-edit-id="dryer-pain1-title">宠物抗拒进入</h4>
+                        <p class="pain-item-desc" data-editable="text" data-edit-id="dryer-pain1-desc">传统烘干箱封闭感强、噪音大，宠物本能抗拒。硬塞进去后不停抓挠、哀叫，主人心疼又无奈。</p>
+                    </div>
+                    <div class="pain-item problem">
+                        <div class="pain-item-num">PAIN 02</div>
+                        <h4 class="pain-item-title" data-editable="text" data-edit-id="dryer-pain2-title">局部过热 / 烘干不均</h4>
+                        <p class="pain-item-desc" data-editable="text" data-edit-id="dryer-pain2-desc">单方向出风导致靠近热源处过热，远离处烘干不到位。长时间使用局部温度过高，存在安全隐患。</p>
+                    </div>
+                    <div class="pain-item problem">
+                        <div class="pain-item-num">PAIN 03</div>
+                        <h4 class="pain-item-title" data-editable="text" data-edit-id="dryer-pain3-title">清洁维护困难</h4>
+                        <p class="pain-item-desc" data-editable="text" data-edit-id="dryer-pain3-desc">毛发堵塞出风口，内部难以清洗。长期使用滋生细菌和异味，影响宠物健康和产品寿命。</p>
+                    </div>
+                </div>
+            </div>
+            <div class="pain-bridge">
+                <div class="pain-bridge-line"></div>
+                <div class="pain-bridge-arrow">→</div>
+                <div class="pain-bridge-line"></div>
+            </div>
+            <div class="pain-column">
+                <h3 style="color:var(--green)">✅ 设计回应</h3>
+                <div class="pain-list">
+                    <div class="pain-item solution">
+                        <div class="pain-item-num">SOLVE 01</div>
+                        <h4 class="pain-item-title" data-editable="text" data-edit-id="dryer-solve1-title">零压力舱体设计</h4>
+                        <p class="pain-item-desc" data-editable="text" data-edit-id="dryer-solve1-desc">多面可视化视窗减少封闭感，柔和呼吸灯降低紧张。温控坐垫让宠物"坐着暖"，从身体舒适感入手减少抗拒心理。</p>
+                    </div>
+                    <div class="pain-item solution">
+                        <div class="pain-item-num">SOLVE 02</div>
+                        <h4 class="pain-item-title" data-editable="text" data-edit-id="dryer-solve2-title">全方位立体送风</h4>
+                        <p class="pain-item-desc" data-editable="text" data-edit-id="dryer-solve2-desc">多角度出风 + 底部空气循环，温暖气流均匀环绕全身。无死角烘干，杜绝局部过热，保证温度始终在安全舒适区间。</p>
+                    </div>
+                    <div class="pain-item solution">
+                        <div class="pain-item-num">SOLVE 03</div>
+                        <h4 class="pain-item-title" data-editable="text" data-edit-id="dryer-solve3-title">易清洁结构</h4>
+                        <p class="pain-item-desc" data-editable="text" data-edit-id="dryer-solve3-desc">可拆卸毛发滤网和隔离托盘，支持水洗或消毒。底部循环风道防毛发缠绕，日常维护简单高效。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="summary-section">
+        <div class="summary-inner reveal">
+            <p class="section-label" style="color:#6ec89a">Project Summary</p>
+            <h2 class="summary-title" data-editable="text" data-edit-id="dryer-summary-title">不只烘干宠物<br>更要<strong>让宠物愿意待在里面</strong></h2>
+            <p class="summary-desc" data-editable="text" data-edit-id="dryer-summary-desc">智宠未来的设计哲学是"零压力"——从宠物视角出发，用温控、通风、视觉、灯光四个维度重新定义烘干体验。烘干效率是基础，宠物愿意待才是关键。</p>
+            <div class="summary-tags">
+                <span class="summary-tag" data-editable="text" data-edit-id="dryer-summary-tag1">产品 ID 设计</span>
+                <span class="summary-tag" data-editable="text" data-edit-id="dryer-summary-tag2">竞品分析</span>
+                <span class="summary-tag" data-editable="text" data-edit-id="dryer-summary-tag3">用户旅程</span>
+                <span class="summary-tag" data-editable="text" data-edit-id="dryer-summary-tag4">宠物护理</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Navigation -->
+    <nav class="project-nav">
+        <a href="project-elecom.html" class="project-nav-link prev">
+            <span class="project-nav-icon">←</span>
+            <div>
+                <div class="project-nav-label">上一个项目</div>
+                <div class="project-nav-title">ELECOM 直发器 2.0</div>
+            </div>
+        </a>
+        <div class="project-nav-center"><span>智能烘干系统</span></div>
+        <a href="project-antarikha.html" class="project-nav-link next">
+            <div>
+                <div class="project-nav-label">下一个项目</div>
+                <div class="project-nav-title">Antarikha 无人机</div>
+            </div>
+            <span class="project-nav-icon">→</span>
+        </a>
+    </nav>
+
+    <footer class="footer">
+        <span>© 2026 吴金政 Merrick. All rights reserved.</span>
+        <div class="footer-icons">
+            <a href="mailto:2521796885@qq.com" class="footer-icon" title="发送邮件">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+                </svg>
+                <span>2521796885@qq.com</span>
+            </a>
+            <a href="#" class="footer-icon" title="微信">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                </svg>
+                <span>WeChat</span>
+            </a>
+        </div>
+    </footer>
+
+    <button class="back-to-top" id="backToTop" aria-label="回到顶部">↑</button>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <button class="lightbox-close" id="lightboxClose" aria-label="关闭">✕</button>
+        <button class="lightbox-prev" id="lightboxPrev" aria-label="上一张">‹</button>
+        <button class="lightbox-next" id="lightboxNext" aria-label="下一张">›</button>
+        <div class="lightbox-img-wrap">
+            <img class="lightbox-img" id="lightboxImg" src="" alt="">
+        </div>
+        <p class="lightbox-caption" id="lightboxCaption"></p>
+        <div class="lightbox-counter" id="lightboxCounter"></div>
+        <div class="lightbox-hint">← 左右滑动切换 →</div>
+    </div>
+
+    <script>
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+        }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+        document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+        window.addEventListener('scroll', () => {
+            document.getElementById('backToTop').classList.toggle('visible', window.scrollY > window.innerHeight);
+        });
+        document.getElementById('backToTop').addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        const lazyObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('loaded');
+                    lazyObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.05 });
+        document.querySelectorAll('.lazy-img').forEach(img => {
+            if (img.complete) { img.classList.add('loaded'); }
+            else { lazyObserver.observe(img); }
+        });
+
+        /* Lightbox */
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightboxImg');
+        const lightboxCaption = document.getElementById('lightboxCaption');
+        const lightboxCounter = document.getElementById('lightboxCounter');
+        const galleryItems = document.querySelectorAll('.gallery-item');
+        let currentIndex = 0;
+
+        function openLightbox(index) {
+            currentIndex = index;
+            updateLightbox();
+            lightbox.classList.add('open');
+            document.body.style.overflow = 'hidden';
+        }
+        function closeLightbox() {
+            lightbox.classList.remove('open');
+            document.body.style.overflow = '';
+        }
+        function updateLightbox() {
+            const item = galleryItems[currentIndex];
+            const img = item.querySelector('img');
+            lightboxImg.src = img.src;
+            lightboxImg.alt = img.alt;
+            const caption = item.querySelector('.gallery-caption');
+            lightboxCaption.textContent = caption ? caption.textContent : (img.alt || '');
+            lightboxCounter.textContent = (currentIndex + 1) + ' / ' + galleryItems.length;
+            document.getElementById('lightboxPrev').disabled = currentIndex === 0;
+            document.getElementById('lightboxNext').disabled = currentIndex === galleryItems.length - 1;
+        }
+        function prevImage() { if (currentIndex > 0) { currentIndex--; updateLightbox(); } }
+        function nextImage() { if (currentIndex < galleryItems.length - 1) { currentIndex++; updateLightbox(); } }
+
+        galleryItems.forEach((item, i) => { item.addEventListener('click', () => openLightbox(i)); });
+        document.getElementById('lightboxClose').addEventListener('click', closeLightbox);
+        document.getElementById('lightboxPrev').addEventListener('click', prevImage);
+        document.getElementById('lightboxNext').addEventListener('click', nextImage);
+        lightbox.addEventListener('click', (e) => { if (e.target === lightbox) closeLightbox(); });
+
+        document.addEventListener('keydown', (e) => {
+            if (!lightbox.classList.contains('open')) return;
+            if (e.key === 'Escape') closeLightbox();
+            if (e.key === 'ArrowLeft') prevImage();
+            if (e.key === 'ArrowRight') nextImage();
+        });
+
+        let touchStartX = 0;
+        lightbox.addEventListener('touchstart', (e) => { touchStartX = e.touches[0].clientX; }, { passive: true });
+        lightbox.addEventListener('touchend', (e) => {
+            const dx = e.changedTouches[0].clientX - touchStartX;
+            if (Math.abs(dx) > 50) { if (dx < 0) nextImage(); else prevImage(); }
+        }, { passive: true });
+    </script>
+    <script src="editor.js"></script>
+</body>
+</html>

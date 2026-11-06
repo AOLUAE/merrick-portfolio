@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="icon" href="favicon.png" type="image/png">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <title>吴金政 Merrick | Industrial Design Portfolio</title>
+    <meta name="description" content="吴金政（Merrick）的工业设计作品集网站。展示 DMKR FPV 眼镜、ELECOM 直发器、智宠烘干器、Antarikha 两栖无人机等工业设计作品，涵盖产品 ID、CMF、概念设计等领域。">
+    <meta name="keywords" content="工业设计, 产品设计, ID设计, FPV眼镜, 无人机, 作品集">
+    <meta property="og:title" content="吴金政 Merrick | Industrial Design Portfolio">
+    <meta property="og:description" content="工业设计作品集 — DMKR FPV眼镜 / ELECOM直发器 / 智宠烘干器 / Antarikha无人机">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="zh_CN">
+        <meta property="og:url" content="https://aoluae.github.io/merrick-portfolio/">
+    <meta property="og:image" content="https://aoluae.github.io/merrick-portfolio/images/fpv-poster.webp">
+    <link rel="canonical" href="https://aoluae.github.io/merrick-portfolio/">
+    <link rel="stylesheet" href="common.css">
+    <style>
+        /* ===== Index-specific: Work Thumb real image ===== */
+        .work-thumb--real {
+            overflow: hidden;
+        }
+        .work-thumb--real img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 12px;
+            transition: transform 0.6s ease;
+        }
+        .work-item:hover .work-thumb--real img {
+            transform: scale(1.06);
+        }
+        /* Override the base hover for card image zoom */
+        .work-item:hover {
+            transform: translateY(-4px);
+        }
+
+        /* ===== Hero with photo ===== */
+        .hero-layout {
+            display: flex;
+            align-items: center;
+            gap: 64px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 64px;
+            position: relative;
+            z-index: 1;
+        }
+        .hero-content-side {
+            flex: 1;
+            min-width: 0;
+        }
+        .hero-photo-side {
+            flex-shrink: 0;
+            width: 320px;
+        }
+        .hero-photo {
+            width: 320px;
+            height: 400px;
+            border-radius: 20px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 24px 64px rgba(0,0,0,0.12), 0 8px 24px rgba(0,0,0,0.08);
+        }
+        .hero-photo::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 20px;
+            border: 1px solid rgba(255,255,255,0.15);
+            pointer-events: none;
+        }
+        .hero-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        .hero-photo-label {
+            position: absolute;
+            bottom: 16px;
+            left: 16px;
+            right: 16px;
+            padding: 10px 14px;
+            background: rgba(255,255,255,0.9);
+            backdrop-filter: blur(12px);
+            border-radius: 10px;
+            font-size: 12px;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+        .hero-photo-label strong {
+            display: block;
+            font-size: 14px;
+            color: var(--text-primary);
+            margin-bottom: 2px;
+        }
+
+        /* ===== About photo ===== */
+        .about-avatar-photo {
+            width: 160px;
+            height: 200px;
+            border-radius: 16px;
+            overflow: hidden;
+            margin: 0 auto 16px;
+            box-shadow: 0 12px 32px rgba(0,0,0,0.1);
+        }
+        .about-avatar-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* ===== Work color accent line ===== */
+        .work-item { position: relative; }
+        .work-item::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            width: 4px; height: 100%;
+            border-radius: 4px 0 0 4px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .work-item:hover::before { opacity: 1; }
+        .work-item:nth-child(1)::before { background: #c8a96e; }
+        .work-item:nth-child(2)::before { background: #c8a96e; }
+        .work-item:nth-child(3)::before { background: #6ec89a; }
+        .work-item:nth-child(4)::before { background: #5b8ec9; }
+
+        /* Lightbox touch state */
+        .lightbox { cursor: default; }
+        .lightbox-img-wrap { cursor: default; }
+
+        @media (max-width: 900px) {
+            .hero-layout {
+                flex-direction: column-reverse;
+                gap: 32px;
+                padding: 0 24px;
+            }
+            .hero-photo-side {
+                width: 200px;
+            }
+            .hero-photo {
+                width: 200px;
+                height: 250px;
+                border-radius: 16px;
+            }
+            .about-avatar-photo {
+                width: 120px;
+                height: 150px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Nav -->
+    <nav class="nav" id="nav">
+        <div class="nav-logo">吴金政 Merrick</div>
+        <ul class="nav-links">
+            <li><a href="#works">Works</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <button class="menu-btn" id="menuBtn" aria-label="打开菜单">☰</button>
+    </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="menu-overlay" id="menuOverlay"></div>
+    <div class="menu-panel" id="menuPanel">
+        <button class="menu-panel-close" id="menuPanelClose" aria-label="关闭菜单">✕</button>
+        <ul class="menu-panel-links">
+            <li><a href="#works" class="menu-link">Works</a></li>
+            <li><a href="#about" class="menu-link">About</a></li>
+            <li><a href="#skills" class="menu-link">Skills</a></li>
+            <li><a href="#contact" class="menu-link">Contact</a></li>
+        </ul>
+        <div class="menu-panel-divider"></div>
+        <div class="menu-panel-contact">
+            <div class="menu-contact-item">📧 2521796885@qq.com</div>
+            <div class="menu-contact-item">💬 WeChat: Merrick23624</div>
+        </div>
+    </div>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-deco"></div>
+        <div class="hero-layout">
+            <div class="hero-content-side">
+                <p class="hero-label" data-editable="text" data-edit-id="index-hero-label">Industrial Designer</p>
+                <h1 data-editable="text" data-edit-id="index-hero-title">用设计<strong>定义</strong><br>产品的<span style="color:var(--accent)">下一刻</span></h1>
+                <p class="hero-desc" data-editable="text" data-edit-id="index-hero-desc">我是吴金政（Merrick），中国计量大学现代科技学院工业设计专业出身，目前就职于朗视特电子有限公司，专注于产品 ID 设计。先后参与学校香水瓶造型设计、义乌市浪尖工业设计有限公司宠物食具项目，并在拓觅未来科技有限公司担任音频产品 ID 设计。</p>
+                <div class="hero-tags">
+                    <span class="hero-tag">产品 ID 设计</span>
+                    <span class="hero-tag">CMF</span>
+                    <span class="hero-tag">概念设计</span>
+                </div>
+            </div>
+            <div class="hero-photo-side">
+                <div class="hero-photo" data-editable="image" data-edit-id="index-hero-photo">
+                    <img src="images/portrait.jpg" alt="吴金政 Merrick">
+                    <div class="hero-photo-label">
+                        <strong>吴金政 Merrick</strong>
+                        朗视特电子 · Industrial Designer
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="hero-scroll">SCROLL ↓</div>
+    </section>
+
+    <!-- Works -->
+    <section class="section" id="works">
+        <div class="section-header reveal">
+            <div>
+                <p class="section-label">Selected Works</p>
+                <h2 class="section-title">精选<strong>作品</strong></h2>
+            </div>
+        </div>
+
+        <div class="works-list">
+            <div class="work-item reveal">
+                <div class="work-thumb work-thumb--real" data-editable="image" data-edit-id="index-work1-img">
+                    <img src="images/fpv-poster.webp" alt="DMKR FPV 眼镜" loading="lazy" class="lazy-img">
+                </div>
+                <div class="work-meta">
+                    <p class="work-number">01</p>
+                    <h3 class="work-title" data-editable="text" data-edit-id="index-work1-title">DMKR FPV 眼镜</h3>
+                    <p class="work-subtitle" data-editable="text" data-edit-id="index-work1-subtitle">无人机 FPV 设备 · 2026</p>
+                    <p class="work-desc" data-editable="text" data-edit-id="index-work1-desc">4.3 寸巨幕 FPV 眼镜，毫秒级低延迟实现沉浸式第一人称飞行。专为近视玩家设计，0-600 度屈光度直戴，久飞不压鼻、镜片不起雾。入门一步到位——内置高清 DVR、全频段兼容、长续航。</p>
+                    <div class="work-features">
+                        <div class="work-feature">
+                            <span class="work-feature-icon">🔭</span>
+                            <div>
+                                <p class="work-feature-title" data-editable="text" data-edit-id="index-work1-feat1-title">4.3" 巨幕</p>
+                                <p class="work-feature-desc" data-editable="text" data-edit-id="index-work1-feat1-desc">毫秒级低延迟 · 沉浸式第一人称飞行</p>
+                            </div>
+                        </div>
+                        <div class="work-feature">
+                            <span class="work-feature-icon">👓</span>
+                            <div>
+                                <p class="work-feature-title" data-editable="text" data-edit-id="index-work1-feat2-title">近视友好</p>
+                                <p class="work-feature-desc" data-editable="text" data-edit-id="index-work1-feat2-desc">0-600° 直戴 · 不压鼻 · 不起雾</p>
+                            </div>
+                        </div>
+                        <div class="work-feature">
+                            <span class="work-feature-icon">🎯</span>
+                            <div>
+                                <p class="work-feature-title" data-editable="text" data-edit-id="index-work1-feat3-title">入门一步到位</p>
+                                <p class="work-feature-desc" data-editable="text" data-edit-id="index-work1-feat3-desc">内置高清 DVR · 全频段兼容 · 长续航</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="work-tags">
+                        <span class="work-tag" data-editable="text" data-edit-id="index-work1-tag1">产品ID</span>
+                        <span class="work-tag" data-editable="text" data-edit-id="index-work1-tag2">CMF</span>
+                        <span class="work-tag" data-editable="text" data-edit-id="index-work1-tag3">FPV设备</span>
+                    </div>
+                    <a href="project-dmkr-fpv.html" class="work-arrow">查看详情 →</a>
+                </div>
+            </div>
+
+            <div class="work-item reveal">
+                <div class="work-thumb work-thumb--real" data-editable="image" data-edit-id="index-work2-img">
+                    <img src="images/elecom-product-main.webp" alt="ELECOM 直发器" loading="lazy" class="lazy-img">
+                </div>
+                <div class="work-meta">
+                    <p class="work-number">02</p>
+                    <h3 class="work-title" data-editable="text" data-edit-id="index-work2-title">ELECOM 直发器 2.0</h3>
+                    <p class="work-subtitle" data-editable="text" data-edit-id="index-work2-subtitle">美发工具 · CMF迭代 · 2025</p>
+                    <p class="work-desc" data-editable="text" data-edit-id="index-work2-desc">面向 20-35 岁都市女性的直发器 CMF 外观迭代设计。73% 消费者将外观列为购买前三要素，设计聚焦"桌面美学"——通勤补妆单手操作、差旅快速收纳、咖啡厅补妆也要好看。</p>
+                    <div class="work-tags">
+                        <span class="work-tag" data-editable="text" data-edit-id="index-work2-tag1">CMF迭代</span>
+                        <span class="work-tag" data-editable="text" data-edit-id="index-work2-tag2">外观设计</span>
+                        <span class="work-tag" data-editable="text" data-edit-id="index-work2-tag3">美发工具</span>
+                    </div>
+                    <a href="project-elecom.html" class="work-arrow">查看详情 →</a>
+                </div>
+            </div>
+
+            <div class="work-item reveal">
+                <div class="work-thumb work-thumb--real" data-editable="image" data-edit-id="index-work3-img">
+                    <img src="images/dryer-product-front.webp" alt="智能宠物烘干器" loading="lazy" class="lazy-img">
+                </div>
+                <div class="work-meta">
+                    <p class="work-number">03</p>
+                    <h3 class="work-title" data-editable="text" data-edit-id="index-work3-title">智宠未来 · 智能烘干系统</h3>
+                    <p class="work-subtitle" data-editable="text" data-edit-id="index-work3-subtitle">宠物护理 · 2025</p>
+                    <p class="work-desc" data-editable="text" data-edit-id="index-work3-desc">零压力智能宠物烘干器——重新定义宠物护理的科技美学。全方位送风烘干 + 温控坐垫 + 底部空气循环 + 工作状态呼吸灯，让宠物从"躲藏发抖"到"安心享受"。</p>
+                    <div class="work-tags">
+                        <span class="work-tag" data-editable="text" data-edit-id="index-work3-tag1">产品ID</span>
+                        <span class="work-tag" data-editable="text" data-edit-id="index-work3-tag2">竞品分析</span>
+                        <span class="work-tag" data-editable="text" data-edit-id="index-work3-tag3">宠物用品</span>
+                    </div>
+                    <a href="project-pet-dryer.html" class="work-arrow">查看详情 →</a>
+                </div>
+            </div>
+
+            <div class="work-item reveal">
+                <div class="work-thumb work-thumb--real" data-editable="image" data-edit-id="index-work4-img">
+                    <img src="images/antarikha-hero.webp" alt="Antarikha 两栖无人机" loading="lazy" class="lazy-img">
+                </div>
+                <div class="work-meta">
+                    <p class="work-number">04</p>
+                    <h3 class="work-title" data-editable="text" data-edit-id="index-work4-title">Antarikha 两栖勘探无人机</h3>
+                    <p class="work-subtitle" data-editable="text" data-edit-id="index-work4-subtitle">海空两用 · 概念设计 · 2025</p>
+                    <p class="work-desc" data-editable="text" data-edit-id="index-work4-desc">基于 Cyclo Rotor 推进系统的海空两用勘探无人机。灵感源自"飞鸟与鱼"——一套推进系统实现空中飞行与水下潜航无缝切换，目前市场尚无同类成熟产品。</p>
+                    <div class="work-tags">
+                        <span class="work-tag" data-editable="text" data-edit-id="index-work4-tag1">概念设计</span>
+                        <span class="work-tag" data-editable="text" data-edit-id="index-work4-tag2">结构设计</span>
+                        <span class="work-tag" data-editable="text" data-edit-id="index-work4-tag3">无人机</span>
+                    </div>
+                    <a href="project-antarikha.html" class="work-arrow">查看详情 →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section class="section" id="about">
+        <div class="section-header reveal">
+            <div>
+                <p class="section-label">About Me</p>
+                <h2 class="section-title">关于<strong>我</strong></h2>
+            </div>
+        </div>
+        <div class="about-grid">
+            <div class="about-sticky reveal">
+                <div class="about-photo">
+                    <div class="about-avatar-photo" data-editable="image" data-edit-id="index-about-photo">
+                        <img src="images/portrait.jpg" alt="吴金政 Merrick">
+                    </div>
+                </div>
+                <p class="about-name">吴金政 Merrick</p>
+                <p class="about-role">朗视特电子有限公司 · Industrial Designer</p>
+            </div>
+            <div class="about-right reveal">
+                <p data-editable="text" data-edit-id="index-about-p1">我是工业设计专业出身，25届毕业于中国计量大学现代科技学院，目前就职于朗视特电子有限公司，专注于产品 ID 设计。先后参与香水瓶造型设计、浪尖工业设计宠物食具项目、拓觅未来科技音频产品 ID 设计，覆盖消费电子、宠物用品、美发工具、无人机等多个领域。</p>
+                <p data-editable="text" data-edit-id="index-about-p2">我相信好的产品设计不需要解释——形态本身就在传递信息。每一个倒角、每一处CMF选择，都在塑造用户对产品的第一印象和长期感受。</p>
+                <p data-editable="text" data-edit-id="index-about-p3">工作中我习惯先理解产品定位和用户场景，再用设计语言回应需求。比起追求形式上的炫技，我更在意设计是否真的解决了问题。</p>
+                <div class="about-stats">
+                    <div>
+                        <div class="stat-num">25</div>
+                        <div class="stat-label">届毕业生</div>
+                    </div>
+                    <div>
+                        <div class="stat-num">20+</div>
+                        <div class="stat-label">设计项目</div>
+                    </div>
+                    <div>
+                        <div class="stat-num">4</div>
+                        <div class="stat-label">产品领域</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills -->
+    <section class="section" id="skills">
+        <div class="section-header reveal">
+            <div>
+                <p class="section-label">Skills & Tools</p>
+                <h2 class="section-title">技能与<strong>工具</strong></h2>
+            </div>
+        </div>
+        <div class="skills-grid">
+            <div class="skill-card reveal">
+                <div class="skill-icon">✏️</div>
+                <h3 class="skill-name" data-editable="text" data-edit-id="index-skill1-name">设计能力</h3>
+                <ul class="skill-list">
+                    <li data-editable="text" data-edit-id="index-skill1-1">产品ID设计</li>
+                    <li data-editable="text" data-edit-id="index-skill1-2">概念草图与2D渲染</li>
+                    <li data-editable="text" data-edit-id="index-skill1-3">3D建模与渲染</li>
+                    <li data-editable="text" data-edit-id="index-skill1-4">CMF方案制定</li>
+                    <li data-editable="text" data-edit-id="index-skill1-5">设计趋势研究</li>
+                </ul>
+            </div>
+            <div class="skill-card reveal">
+                <div class="skill-icon">🛠️</div>
+                <h3 class="skill-name" data-editable="text" data-edit-id="index-skill2-name">核心工具</h3>
+                <ul class="skill-list">
+                    <li data-editable="text" data-edit-id="index-skill2-1">Rhino</li>
+                    <li data-editable="text" data-edit-id="index-skill2-2">Keyshot</li>
+                    <li data-editable="text" data-edit-id="index-skill2-3">Creo</li>
+                    <li data-editable="text" data-edit-id="index-skill2-4">Blender</li>
+                    <li data-editable="text" data-edit-id="index-skill2-5">Photoshop / Illustrator</li>
+                </ul>
+            </div>
+            <div class="skill-card reveal">
+                <div class="skill-icon">💡</div>
+                <h3 class="skill-name" data-editable="text" data-edit-id="index-skill3-name">延伸能力</h3>
+                <ul class="skill-list">
+                    <li data-editable="text" data-edit-id="index-skill3-1">结构可行性评估</li>
+                    <li data-editable="text" data-edit-id="index-skill3-2">手板跟进与验证</li>
+                    <li data-editable="text" data-edit-id="index-skill3-3">供应链沟通</li>
+                    <li data-editable="text" data-edit-id="index-skill3-4">设计系统搭建</li>
+                    <li data-editable="text" data-edit-id="index-skill3-5">前端基础实现</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="contact-section" id="contact">
+        <div class="contact-inner">
+            <div class="reveal">
+                <p class="section-label">Get in Touch</p>
+                <h2 class="contact-title" data-editable="text" data-edit-id="index-contact-title">有想法？<br><strong>聊聊看</strong></h2>
+                <p class="contact-desc" data-editable="text" data-edit-id="index-contact-desc">无论是产品合作、设计咨询还是单纯交流，都欢迎联系。</p>
+            </div>
+            <div class="contact-info reveal">
+                <div class="contact-row">
+                    <div class="contact-row-icon">📧</div>
+                    <div>
+                        <p class="contact-row-label">Email</p>
+                        <p class="contact-row-value">2521796885@qq.com</p>
+                    </div>
+                </div>
+                <div class="contact-row">
+                    <div class="contact-row-icon">💬</div>
+                    <div>
+                        <p class="contact-row-label">WeChat</p>
+                        <p class="contact-row-value">Merrick23624</p>
+                    </div>
+                </div>
+                <div class="contact-row">
+                    <div class="contact-row-icon">🎨</div>
+                    <div>
+                        <p class="contact-row-label">Phone</p>
+                        <p class="contact-row-value">13023374072</p>
+                    </div>
+                </div>
+                <div class="contact-row">
+                    <div class="contact-row-icon">💼</div>
+                    <div>
+                        <p class="contact-row-label">Portfolio</p>
+                        <p class="contact-row-value">2021–2026 Collected</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <span>© 2026 吴金政 Merrick. All rights reserved.</span>
+        <div class="footer-icons">
+            <a href="mailto:2521796885@qq.com" class="footer-icon" title="发送邮件">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="2" y="4" width="20" height="16" rx="2"/>
+                    <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+                </svg>
+                <span>2521796885@qq.com</span>
+            </a>
+            <a href="#" class="footer-icon" title="微信">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                </svg>
+                <span>WeChat</span>
+            </a>
+        </div>
+    </footer>
+
+    <!-- Back to Top -->
+    <button class="back-to-top" id="backToTop" aria-label="回到顶部">↑</button>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <button class="lightbox-close" id="lightboxClose" aria-label="关闭">✕</button>
+        <button class="lightbox-prev" id="lightboxPrev" aria-label="上一张">‹</button>
+        <button class="lightbox-next" id="lightboxNext" aria-label="下一张">›</button>
+        <div class="lightbox-img-wrap">
+            <img class="lightbox-img" id="lightboxImg" src="" alt="">
+        </div>
+        <p class="lightbox-caption" id="lightboxCaption"></p>
+        <div class="lightbox-counter" id="lightboxCounter"></div>
+        <div class="lightbox-hint">← 左右滑动切换 →</div>
+    </div>
+
+    <script>
+        /* ===== Nav scroll ===== */
+        window.addEventListener('scroll', () => {
+            document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 60);
+            document.getElementById('backToTop').classList.toggle('visible', window.scrollY > window.innerHeight);
+        });
+
+        /* ===== Back to top ===== */
+        document.getElementById('backToTop').addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        /* ===== Reveal on scroll ===== */
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('visible');
+            });
+        }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+        document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+        /* ===== Lazy loading fade-in ===== */
+        const lazyObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('loaded');
+                    lazyObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.05 });
+        document.querySelectorAll('.lazy-img').forEach(img => {
+            if (img.complete) {
+                img.classList.add('loaded');
+            } else {
+                lazyObserver.observe(img);
+            }
+        });
+
+        /* ===== Mobile menu ===== */
+        const menuBtn = document.getElementById('menuBtn');
+        const menuOverlay = document.getElementById('menuOverlay');
+        const menuPanel = document.getElementById('menuPanel');
+        const menuPanelClose = document.getElementById('menuPanelClose');
+
+        function openMenu() {
+            menuOverlay.classList.add('open');
+            menuPanel.classList.add('open');
+            document.body.style.overflow = 'hidden';
+        }
+        function closeMenu() {
+            menuOverlay.classList.remove('open');
+            menuPanel.classList.remove('open');
+            document.body.style.overflow = '';
+        }
+
+        menuBtn.addEventListener('click', openMenu);
+        menuPanelClose.addEventListener('click', closeMenu);
+        menuOverlay.addEventListener('click', closeMenu);
+        document.querySelectorAll('.menu-link').forEach(link => {
+            link.addEventListener('click', closeMenu);
+        });
+
+        /* ===== Lightbox ===== */
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightboxImg');
+        const lightboxCaption = document.getElementById('lightboxCaption');
+        const lightboxCounter = document.getElementById('lightboxCounter');
+        const lightboxClose = document.getElementById('lightboxClose');
+        const lightboxPrev = document.getElementById('lightboxPrev');
+        const lightboxNext = document.getElementById('lightboxNext');
+
+        // Collect all gallery images
+        const galleryImgs = Array.from(document.querySelectorAll('.work-thumb--real img'));
+        let currentIndex = 0;
+
+        function openLightbox(index) {
+            currentIndex = index;
+            updateLightbox();
+            lightbox.classList.add('open');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            lightbox.classList.remove('open');
+            document.body.style.overflow = '';
+        }
+
+        function updateLightbox() {
+            const img = galleryImgs[currentIndex];
+            lightboxImg.src = img.src;
+            lightboxImg.alt = img.alt;
+            lightboxCaption.textContent = img.alt || '';
+            lightboxCounter.textContent = (currentIndex + 1) + ' / ' + galleryImgs.length;
+            lightboxPrev.disabled = currentIndex === 0;
+            lightboxNext.disabled = currentIndex === galleryImgs.length - 1;
+        }
+
+        function prevImage() {
+            if (currentIndex > 0) { currentIndex--; updateLightbox(); }
+        }
+        function nextImage() {
+            if (currentIndex < galleryImgs.length - 1) { currentIndex++; updateLightbox(); }
+        }
+
+        galleryImgs.forEach((img, i) => {
+            img.parentElement.addEventListener('click', () => openLightbox(i));
+            img.parentElement.style.cursor = 'pointer';
+        });
+
+        lightboxClose.addEventListener('click', closeLightbox);
+        lightboxPrev.addEventListener('click', prevImage);
+        lightboxNext.addEventListener('click', nextImage);
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) closeLightbox();
+        });
+
+        /* Keyboard navigation */
+        document.addEventListener('keydown', (e) => {
+            if (!lightbox.classList.contains('open')) return;
+            if (e.key === 'Escape') closeLightbox();
+            if (e.key === 'ArrowLeft') prevImage();
+            if (e.key === 'ArrowRight') nextImage();
+        });
+
+        /* Touch swipe */
+        let touchStartX = 0;
+        lightbox.addEventListener('touchstart', (e) => {
+            touchStartX = e.touches[0].clientX;
+        }, { passive: true });
+        lightbox.addEventListener('touchend', (e) => {
+            const dx = e.changedTouches[0].clientX - touchStartX;
+            if (Math.abs(dx) > 50) {
+                if (dx < 0) nextImage(); else prevImage();
+            }
+        }, { passive: true });
+    </script>
+    <script src="editor.js"></script>
+</body>
+</html>
