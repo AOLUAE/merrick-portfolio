@@ -24,7 +24,7 @@
     --transition: 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
 }
 
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; scroll-padding-top: 88px; }
 
 body {
     font-family: -apple-system, 'Helvetica Neue', 'PingFang SC', sans-serif;
@@ -39,6 +39,13 @@ body.loading { overflow: hidden; }
 
 a { color: inherit; text-decoration: none; }
 img { display: block; max-width: 100%; }
+
+/* ===== Focus visibility (keyboard) ===== */
+:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 4px;
+}
 
 /* ===== Scrollbar ===== */
 ::-webkit-scrollbar { width: 4px; }
@@ -78,6 +85,7 @@ img { display: block; max-width: 100%; }
     transition: var(--transition);
 }
 .nav-links a:hover { color: var(--text-primary); }
+.nav-links a.active { color: var(--accent); }
 
 /* ===== Back Nav (Detail Pages) ===== */
 .back-nav {
@@ -903,4 +911,16 @@ img.lazy-img.loaded { opacity: 1; }
     .lightbox-prev { left: 8px; width: 44px; height: 44px; font-size: 22px; }
     .lightbox-next { right: 8px; width: 44px; height: 44px; font-size: 22px; }
     .lightbox-hint { display: block; }
+}
+
+
+/* ===== Reduced motion ===== */
+@media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+    .reveal { opacity: 1 !important; transform: none !important; }
 }
