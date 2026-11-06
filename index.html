@@ -154,6 +154,20 @@
                 height: 150px;
             }
         }
+        /* ===== Work status badge ===== */
+        .work-status {
+            display: inline-block;
+            align-self: flex-start;
+            padding: 3px 10px;
+            border-radius: 999px;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            margin: -8px 0 14px;
+        }
+        .work-status--molded { background: rgba(74,158,110,0.14); color: #3d8a5e; }
+        .work-status--freelance { background: rgba(200,169,110,0.16); color: #9c7d36; }
+        .work-status--concept { background: rgba(91,142,201,0.14); color: #4a7cb5; }
     </style>
 </head>
 <body>
@@ -192,8 +206,8 @@
         <div class="hero-deco"></div>
         <div class="hero-layout">
             <div class="hero-content-side">
-                <p class="hero-label" data-editable="text" data-edit-id="index-hero-label">Industrial Designer</p>
-                <h1 data-editable="text" data-edit-id="index-hero-title">用设计<strong>定义</strong><br>产品的<span style="color:var(--accent)">下一刻</span></h1>
+                <p class="hero-label" data-editable="text" data-edit-id="index-hero-label">Industrial Designer · Product ID &amp; CMF</p>
+                <h1 data-editable="text" data-edit-id="index-hero-title">专注 <strong>ID</strong> 与 <strong>CMF</strong><br>塑造产品的<span style="color:var(--accent)">第一印象</span></h1>
                 <p class="hero-desc" data-editable="text" data-edit-id="index-hero-desc">我是吴金政（Merrick），中国计量大学现代科技学院工业设计专业出身，目前就职于朗视特电子有限公司，专注于产品 ID 设计。先后参与学校香水瓶造型设计、义乌市浪尖工业设计有限公司宠物食具项目，并在拓觅未来科技有限公司担任音频产品 ID 设计。</p>
                 <div class="hero-tags">
                     <span class="hero-tag">产品 ID 设计</span>
@@ -230,6 +244,7 @@
                 </div>
                 <div class="work-meta">
                     <p class="work-number">01</p>
+                    <span class="work-status work-status--molded">已开模</span>
                     <h3 class="work-title" data-editable="text" data-edit-id="index-work1-title">DMKR FPV 眼镜</h3>
                     <p class="work-subtitle" data-editable="text" data-edit-id="index-work1-subtitle">无人机 FPV 设备 · 2026</p>
                     <p class="work-desc" data-editable="text" data-edit-id="index-work1-desc">4.3 寸巨幕 FPV 眼镜，毫秒级低延迟实现沉浸式第一人称飞行。专为近视玩家设计，0-600 度屈光度直戴，久飞不压鼻、镜片不起雾。入门一步到位——内置高清 DVR、全频段兼容、长续航。</p>
@@ -271,6 +286,7 @@
                 </div>
                 <div class="work-meta">
                     <p class="work-number">02</p>
+                    <span class="work-status work-status--freelance">独立外观设计</span>
                     <h3 class="work-title" data-editable="text" data-edit-id="index-work2-title">ELECOM 直发器 2.0</h3>
                     <p class="work-subtitle" data-editable="text" data-edit-id="index-work2-subtitle">美发工具 · CMF迭代 · 2025</p>
                     <p class="work-desc" data-editable="text" data-edit-id="index-work2-desc">面向 20-35 岁都市女性的直发器 CMF 外观迭代设计。73% 消费者将外观列为购买前三要素，设计聚焦"桌面美学"——通勤补妆单手操作、差旅快速收纳、咖啡厅补妆也要好看。</p>
@@ -289,6 +305,7 @@
                 </div>
                 <div class="work-meta">
                     <p class="work-number">03</p>
+                    <span class="work-status work-status--freelance">独立外观设计</span>
                     <h3 class="work-title" data-editable="text" data-edit-id="index-work3-title">智宠未来 · 智能烘干系统</h3>
                     <p class="work-subtitle" data-editable="text" data-edit-id="index-work3-subtitle">宠物护理 · 2025</p>
                     <p class="work-desc" data-editable="text" data-edit-id="index-work3-desc">零压力智能宠物烘干器——重新定义宠物护理的科技美学。全方位送风烘干 + 温控坐垫 + 底部空气循环 + 工作状态呼吸灯，让宠物从"躲藏发抖"到"安心享受"。</p>
@@ -307,6 +324,7 @@
                 </div>
                 <div class="work-meta">
                     <p class="work-number">04</p>
+                    <span class="work-status work-status--concept">概念设计</span>
                     <h3 class="work-title" data-editable="text" data-edit-id="index-work4-title">Antarikha 两栖勘探无人机</h3>
                     <p class="work-subtitle" data-editable="text" data-edit-id="index-work4-subtitle">海空两用 · 概念设计 · 2025</p>
                     <p class="work-desc" data-editable="text" data-edit-id="index-work4-desc">基于 Cyclo Rotor 推进系统的海空两用勘探无人机。灵感源自"飞鸟与鱼"——一套推进系统实现空中飞行与水下潜航无缝切换，目前市场尚无同类成熟产品。</p>

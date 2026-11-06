@@ -8,6 +8,8 @@
 
   // ─── Config ───────────────────────────────────────────────────────────────
   const STORAGE_KEY = 'portfolio-edits';
+  const EDIT_PASSWORD = 'Aoluae42';
+  const UNLOCK_KEY = 'portfolio-edit-unlocked';
   const PAGES = {
     'index': 'index.html',
     'fpv': 'project-dmkr-fpv.html',
@@ -35,10 +37,10 @@
     // Load saved edits
     try { edits = JSON.parse(localStorage.getItem(STORAGE_KEY)) || {}; } catch(e) { edits = {}; }
 
-    // Check URL param or saved state
+    // Check URL param (password required)
     const params = new URLSearchParams(window.location.search);
-    if (params.get('edit') === 'true' || localStorage.getItem('portfolio-edit-mode') === 'true') {
-      enableEditMode();
+    if (params.get('edit') === 'true') {
+      requestEditAccess();
     }
 
     // Register keyboard shortcut
@@ -56,12 +58,11 @@
   // ─── Edit Mode Toggle ───────────────────────────────────────────────────────
   function toggleEditMode() {
     if (editMode) disableEditMode();
-    else enableEditMode();
+    else requestEditAccess();
   }
 
   function enableEditMode() {
     editMode = true;
-    localStorage.setItem('portfolio-edit-mode', 'true');
     injectStyles();
     activateEditables();
     showToolbar();
@@ -70,11 +71,73 @@
 
   function disableEditMode() {
     editMode = false;
-    localStorage.setItem('portfolio-edit-mode', 'false');
     removeStyles();
     deactivateEditables();
     hideToolbar();
     document.body.classList.remove('pf-edit-active');
+  }
+
+  // ─── Password Gate ─────────────────────────────────────────────────────────
+  var _pwModal = null;
+
+  function requestEditAccess() {
+    if (sessionStorage.getItem(UNLOCK_KEY) === '1') { enableEditMode(); return; }
+    showPasswordModal();
+  }
+
+  function showPasswordModal() {
+    if (_pwModal) return;
+    if (!document.getElementById('pf-pw-styles')) {
+      var s = document.createElement('style');
+      s.id = 'pf-pw-styles';
+      s.textContent = [
+        '.pf-pw-overlay { position: fixed; inset: 0; z-index: 10002; background: rgba(0,0,0,0.55); display: flex; align-items: center; justify-content: center; padding: 24px; }',
+        '.pf-pw-box { width: 320px; max-width: 100%; background: #fff; border-radius: 14px; padding: 28px 24px; box-shadow: 0 24px 64px rgba(0,0,0,0.3); font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color: #1a1a1a; }',
+        '.pf-pw-title { font-size: 17px; font-weight: 700; margin-bottom: 6px; }',
+        '.pf-pw-sub { font-size: 13px; color: #6b6b6b; margin-bottom: 16px; }',
+        '.pf-pw-input { width: 100%; padding: 10px 12px; font-size: 14px; border: 1px solid #e5e2dc; border-radius: 8px; margin-bottom: 16px; outline: none; box-sizing: border-box; }',
+        '.pf-pw-input:focus { border-color: #c8a96e; box-shadow: 0 0 0 3px rgba(200,169,110,0.15); }',
+        '.pf-pw-actions { display: flex; justify-content: flex-end; gap: 8px; }',
+        '.pf-pw-actions button { padding: 7px 14px; border-radius: 6px; border: 1px solid #e5e2dc; background: #fff; color: #1a1a1a; font-size: 13px; font-weight: 600; cursor: pointer; font-family: inherit; }',
+        '.pf-pw-actions button.pf-pw-ok { background: #c8a96e; border-color: #c8a96e; color: #fff; }',
+        '.pf-pw-actions button:hover { opacity: 0.85; }',
+      ].join('\n');
+      document.head.appendChild(s);
+    }
+    _pwModal = document.createElement('div');
+    _pwModal.className = 'pf-pw-overlay';
+    _pwModal.innerHTML = [
+      '<div class="pf-pw-box">',
+      '  <div class="pf-pw-title">🔒 编辑模式</div>',
+      '  <div class="pf-pw-sub">请输入访问密码</div>',
+      '  <input type="password" class="pf-pw-input" placeholder="密码" autocomplete="off">',
+      '  <div class="pf-pw-actions">',
+      '    <button type="button" data-act="cancel">取消</button>',
+      '    <button type="button" class="pf-pw-ok" data-act="ok">确认</button>',
+      '  </div>',
+      '</div>',
+    ].join('');
+    document.body.appendChild(_pwModal);
+    var input = _pwModal.querySelector('.pf-pw-input');
+    input.focus();
+    function submit() {
+      if (input.value === EDIT_PASSWORD) {
+        sessionStorage.setItem(UNLOCK_KEY, '1');
+        _pwModal.remove(); _pwModal = null;
+        enableEditMode();
+      } else {
+        showToast('✗ 密码错误');
+        input.value = '';
+        input.focus();
+      }
+    }
+    function close() { if (_pwModal) { _pwModal.remove(); _pwModal = null; } }
+    _pwModal.querySelector('[data-act="ok"]').addEventListener('click', submit);
+    _pwModal.querySelector('[data-act="cancel"]').addEventListener('click', close);
+    input.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter') submit();
+      if (e.key === 'Escape') close();
+    });
   }
 
   // ─── Styles ────────────────────────────────────────────────────────────────
