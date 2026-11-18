@@ -488,6 +488,7 @@ img { display: block; max-width: 100%; }
 }
 .footer-icon:hover { color: var(--accent); }
 .footer-icon svg { width: 16px; height: 16px; }
+.footer-disclaimer { margin: 14px auto 0; max-width: 720px; font-size: 12px; line-height: 1.7; color: var(--text-dim); text-align: center; }
 
 /* ===== Gallery (Detail Pages) ===== */
 .gallery-section {

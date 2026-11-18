@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="icon" href="favicon.png" type="image/png">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <title>桌面监听音箱 | 吴金政 Merrick Portfolio</title>
+    <meta name="description" content="桌面监听音箱工业设计 — 竖向格栅建立秩序、黑胡桃木侧板拉回家具感、铝框 C 形包裹把接缝藏到侧面。一套模具覆盖监听与家居两种使用场景的造型 / CMF / 分件方案。">
+    <meta property="og:title" content="桌面监听音箱 | 吴金政 Merrick">
+    <meta property="og:description" content="竖向格栅 · 黑胡桃木侧板 · 铝框 C 形包裹 · 双配色 CMF">
+    <meta property="og:type" content="article">
+        <meta property="og:url" content="https://aoluae.github.io/merrick-portfolio/project-speaker.html">
+    <meta property="og:image" content="https://aoluae.github.io/merrick-portfolio/images/speaker-hero.webp">
+    <meta property="og:locale" content="zh_CN">
+    <link rel="canonical" href="https://aoluae.github.io/merrick-portfolio/project-speaker.html">
+    <link rel="stylesheet" href="common.css">
+    <style>
+        :root { --accent: #b07d4f; --accent-light: rgba(176,125,79,0.10); --green: #4a9e6e; --red: #d45555; --blue: #5b8ec9; }
+
+        /* ===== Field Notes ===== */
+        .fn-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px;
+        }
+        .fn-card {
+            background: var(--bg-card, #fbfaf7);
+            border: 1px solid var(--border);
+            border-radius: var(--radius, 12px);
+            padding: 20px 22px;
+        }
+        .fn-card-tag {
+            display: inline-block;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            padding: 3px 10px;
+            border-radius: 999px;
+            margin-bottom: 10px;
+        }
+        .fn-card--fact .fn-card-tag { background: rgba(74,158,110,0.14); color: #3d8a5e; }
+        .fn-card--infer .fn-card-tag { background: rgba(176,125,79,0.16); color: #9c6b34; }
+        .fn-card--tbd .fn-card-tag { background: rgba(91,142,201,0.14); color: #4a7cb5; }
+        .fn-card p {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin: 0;
+        }
+        .fn-card .fn-card-src {
+            display: block;
+            font-size: 12px;
+            color: var(--text-dim, #999);
+            margin-top: 8px;
+        }
+        .opportunity-list { display: flex; flex-direction: column; gap: 12px; }
+        .opportunity-item {
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+            padding: 16px 18px;
+            border: 1px solid var(--border);
+            border-left: 4px solid var(--accent);
+            border-radius: 12px;
+            background: var(--bg-card, #fbfaf7);
+        }
+        .opportunity-weight {
+            flex-shrink: 0;
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--accent);
+            background: var(--accent-light);
+            border-radius: 8px;
+            padding: 6px 10px;
+            min-width: 56px;
+            text-align: center;
+        }
+        .opportunity-item strong { display: block; font-size: 14px; font-weight: 600; margin-bottom: 4px; }
+        .opportunity-item p { font-size: 13px; color: var(--text-secondary); line-height: 1.6; margin: 0; }
+
+        /* ===== CMF ===== */
+        .cmf-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+        }
+        .cmf-item {
+            background: var(--bg-card, #fbfaf7);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 18px 16px;
+            text-align: center;
+        }
+        .cmf-item-name { font-size: 15px; font-weight: 700; margin-bottom: 6px; }
+        .cmf-item-desc { font-size: 12px; color: var(--text-secondary); line-height: 1.5; margin: 0; }
+        @media (max-width: 900px) { .cmf-grid { grid-template-columns: repeat(2, 1fr); } }
+
+        /* ===== Form Branching ===== */
+        .branch-axis {
+            background: var(--bg-card, #fbfaf7);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 18px 22px;
+            margin-bottom: 18px;
+        }
+        .branch-axis-label { font-size: 12px; font-weight: 700; letter-spacing: 0.06em; color: var(--accent); margin-bottom: 6px; text-transform: uppercase; }
+        .branch-axis p { font-size: 14px; color: var(--text-secondary); line-height: 1.7; margin: 0; }
+        .criteria-list { margin: 0 0 22px; padding: 0; list-style: none; }
+        .criteria-list li {
+            font-size: 13px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            padding: 7px 0;
+            border-bottom: 1px dashed var(--border);
+        }
+        .criteria-list li strong { color: var(--text-primary); font-weight: 600; }
+        .branch-list { display: flex; flex-direction: column; gap: 12px; }
+        .branch-item {
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+            padding: 15px 18px;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+        }
+        .branch-item-letter {
+            flex-shrink: 0;
+            width: 30px; height: 30px;
+            border-radius: 8px;
+            background: var(--accent-light);
+            color: var(--accent);
+            font-weight: 700;
+            font-size: 13px;
+            display: flex; align-items: center; justify-content: center;
+        }
+        .branch-item strong { display: block; font-size: 14px; font-weight: 600; margin-bottom: 3px; }
+        .branch-item p { font-size: 13px; color: var(--text-secondary); line-height: 1.6; margin: 0; }
+        .branch-item--selected {
+            border-color: var(--accent);
+            background: var(--accent-light);
+        }
+        .branch-item--selected .branch-item-letter { background: var(--accent); color: #fff; }
+        .branch-selected-tag {
+            display: inline-block;
+            font-size: 11px;
+            font-weight: 700;
+            color: #fff;
+            background: var(--accent);
+            border-radius: 999px;
+            padding: 2px 10px;
+            margin-bottom: 6px;
+        }
+        @media (max-width: 900px) {
+            .fn-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Back Nav -->
+    <nav class="back-nav">
+        <a href="index.html" class="back-link">← 返回作品集</a>
+        <div class="back-logo">吴金政 Merrick</div>
+    </nav>
+
+    <!-- Project Hero -->
+    <section class="project-hero" style="--accent: #b07d4f;">
+        <div class="project-hero-inner reveal">
+            <p class="project-hero-label" style="color: var(--accent);" data-editable="text" data-edit-id="spk-hero-label">造型 · CMF · 分件 · 2025</p>
+            <h1 data-editable="text" data-edit-id="spk-hero-title">桌面监听音箱</h1>
+            <p class="project-hero-subtitle" data-editable="text" data-edit-id="spk-hero-subtitle">用竖向格栅建立秩序，用木质侧板把电声产品拉回桌面家具的语汇——同一副骨架，靠侧板材质与配色切换身份，一套模具覆盖监听与家居两种使用场景。</p>
+            <div class="project-hero-meta">
+                <div class="project-meta-item">
+                    <label>Category</label>
+                    <span data-editable="text" data-edit-id="spk-meta-category">音频产品 / 桌面音箱</span>
+                </div>
+                <div class="project-meta-item">
+                    <label>Role</label>
+                    <span data-editable="text" data-edit-id="spk-meta-role">造型 / CMF / 分件</span>
+                </div>
+                <div class="project-meta-item">
+                    <label>Year</label>
+                    <span data-editable="text" data-edit-id="spk-meta-year">2025</span>
+                </div>
+                <div class="project-meta-item">
+                    <label>Status</label>
+                    <span data-editable="text" data-edit-id="spk-meta-status">拓觅未来 ID 方案</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Brief -->
+    <section class="brief-section">
+        <div class="brief-card reveal">
+            <div class="brief-meta">
+                <div class="brief-meta-item"><span class="brief-meta-label">项目性质</span><span class="brief-meta-value" data-editable="text" data-edit-id="spk-brief-nature">企业 ID 方案 · 拓觅未来科技</span></div>
+                <div class="brief-meta-item"><span class="brief-meta-label">项目时间</span><span class="brief-meta-value" data-editable="text" data-edit-id="spk-brief-time">2025</span></div>
+                <div class="brief-meta-item"><span class="brief-meta-label">团队 / 协作</span><span class="brief-meta-value" data-editable="text" data-edit-id="spk-brief-team">拓觅未来科技 · 音频产品线</span></div>
+                <div class="brief-meta-item"><span class="brief-meta-label">我的交付</span><span class="brief-meta-value" data-editable="text" data-edit-id="spk-brief-delivery">造型方案 · 双配色 CMF · 细节与分件 · 渲染</span></div>
+            </div>
+            <div class="brief-role">
+                <h3 class="brief-role-title">我在其中的角色</h3>
+                <ul>
+                    <li data-editable="text" data-edit-id="spk-brief-role-1">我负责整机造型与形态推演，确立「竖向格栅 + 木质侧板」的核心产品识别。</li>
+                    <li data-editable="text" data-edit-id="spk-brief-role-2">我主导 CMF 方案，定义黑胡桃木、阳极氧化铝、声学网布与哑光 ABS 四类材质及工艺。</li>
+                    <li data-editable="text" data-edit-id="spk-brief-role-3">我完成分件逻辑设计——铝框 C 形包裹，把木材与格栅的接缝藏到侧面。</li>
+                    <li data-editable="text" data-edit-id="spk-brief-role-4">我输出 A–E 五版形态比选与筛选依据，支撑最终方案决策。</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery -->
+    <section class="gallery-section">
+        <div class="gallery-grid">
+            <div class="gallery-item" data-index="0" data-editable="image" data-edit-id="spk-gallery-0">
+                <img src="images/speaker-hero.webp" alt="产品主视觉 · 木质侧板与铝格栅双箱体" loading="lazy" class="lazy-img">
+                <div class="gallery-caption" data-editable="text" data-edit-id="spk-gallery-caption-0">产品主视觉 · 木质侧板与铝格栅双箱体</div>
+            </div>
+            <div class="gallery-item" data-index="1" data-editable="image" data-edit-id="spk-gallery-1">
+                <img src="images/speaker-detail-wood.webp" alt="黑胡桃木侧板 · 阳极氧化铝包边" loading="lazy" class="lazy-img">
+                <div class="gallery-caption" data-editable="text" data-edit-id="spk-gallery-caption-1">黑胡桃木侧板 · 阳极氧化铝包边</div>
+            </div>
+            <div class="gallery-item" data-index="2" data-editable="image" data-edit-id="spk-gallery-2">
+                <img src="images/speaker-detail-black.webp" alt="黑色款 · 声学网布与 R 角收边" loading="lazy" class="lazy-img">
+                <div class="gallery-caption" data-editable="text" data-edit-id="spk-gallery-caption-2">黑色款 · 声学网布与 R 角收边</div>
+            </div>
+            <div class="gallery-item" data-index="3" data-editable="image" data-edit-id="spk-gallery-3">
+                <img src="images/speaker-detail-knob.webp" alt="旋钮区 · 音量与声道切换 · 分段蓝色光带" loading="lazy" class="lazy-img">
+                <div class="gallery-caption" data-editable="text" data-edit-id="spk-gallery-caption-3">旋钮区 · 音量与声道切换 · 分段蓝色光带</div>
+            </div>
+            <div class="gallery-item" data-index="4" data-editable="image" data-edit-id="spk-gallery-4">
+                <img src="images/speaker-detail-front.webp" alt="黑色款 · 正面网罩与侧面轮廓对照" loading="lazy" class="lazy-img">
+                <div class="gallery-caption" data-editable="text" data-edit-id="spk-gallery-caption-4">黑色款 · 正面网罩与侧面轮廓对照</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Field Notes -->
+    <section class="content-section" id="fieldnotes">
+        <div class="reveal">
+            <div class="section-divider"></div>
+            <p class="section-label" style="color:var(--accent)">Field Notes</p>
+            <h2 class="section-title-detail">前期<strong>调研</strong></h2>
+            <p class="section-subtitle-note" style="margin-top:12px;">桌面音箱的竞品不是音箱，是台灯、显示器支架和收纳盒——它占的是桌面上「一件家具」的位置，不是「一台电子设备」的位置。</p>
+        </div>
+
+        <div class="fn-grid reveal">
+            <div class="fn-card fn-card--fact">
+                <span class="fn-card-tag">FACT</span>
+                <p data-editable="text" data-edit-id="spk-fn-fact1">在售桌面音箱按外壳分三类：全塑料一体、木质箱体 + 金属格栅、织物包裹。木质 + 金属的组合集中在千元以上的家居化产品线。</p>
+                <span class="fn-card-src">电商在售页与厂商官网可见（2026-11 自查）</span>
+            </div>
+            <div class="fn-card fn-card--fact">
+                <span class="fn-card-tag">FACT</span>
+                <p data-editable="text" data-edit-id="spk-fn-fact2">木质箱体几乎都是闭合箱；金属格栅以竖条或圆孔为主，竖条在追求开口率的产品上更常见。</p>
+                <span class="fn-card-src">同上，按外观可直接判读</span>
+            </div>
+            <div class="fn-card fn-card--infer">
+                <span class="fn-card-tag">INFERENCE</span>
+                <p data-editable="text" data-edit-id="spk-fn-infer1">桌面用户对「像不像家具」的敏感度高于对参数的敏感度，因为箱体长期停在视线内。</p>
+                <span class="fn-card-src">由摆放场景反推，尚未做用户访谈</span>
+            </div>
+            <div class="fn-card fn-card--infer">
+                <span class="fn-card-tag">INFERENCE</span>
+                <p data-editable="text" data-edit-id="spk-fn-infer2">侧面旋钮优于正面按键：正面要保持整块格栅的连贯，交互只能让到侧面。</p>
+                <span class="fn-card-src">形态与交互的互斥关系</span>
+            </div>
+            <div class="fn-card fn-card--tbd">
+                <span class="fn-card-tag">TBD</span>
+                <p data-editable="text" data-edit-id="spk-fn-tbd1">目标桌面的实际纵深（决定箱体纵深上限）与常见显示器尺寸的搭配关系。</p>
+                <span class="fn-card-src">待验证：需实测 10 个真实桌面</span>
+            </div>
+            <div class="fn-card fn-card--tbd">
+                <span class="fn-card-tag">TBD</span>
+                <p data-editable="text" data-edit-id="spk-fn-tbd2">木质侧板在北方暖气环境的吸水与胀缩，对长期缝隙的影响。</p>
+                <span class="fn-card-src">待验证：需材料供应商数据</span>
+            </div>
+        </div>
+
+        <div class="reveal" style="margin-top:28px;">
+            <h3 class="structure-group-title" style="color:var(--accent)">OPPORTUNITY / 机会点</h3>
+            <div class="opportunity-list">
+                <div class="opportunity-item">
+                    <span class="opportunity-weight">0.40</span>
+                    <div>
+                        <strong data-editable="text" data-edit-id="spk-opp1-title">A · 格栅当结构件</strong>
+                        <p data-editable="text" data-edit-id="spk-opp1-desc">它同时承担开口率、分件线与视觉节奏，不是一个贴上去的装饰面。</p>
+                    </div>
+                </div>
+                <div class="opportunity-item">
+                    <span class="opportunity-weight">0.35</span>
+                    <div>
+                        <strong data-editable="text" data-edit-id="spk-opp2-title">B · 交互全部让到侧面</strong>
+                        <p data-editable="text" data-edit-id="spk-opp2-desc">正面只保留一条轮廓线，是「家具感」最省的做法。</p>
+                    </div>
+                </div>
+                <div class="opportunity-item">
+                    <span class="opportunity-weight">0.25</span>
+                    <div>
+                        <strong data-editable="text" data-edit-id="spk-opp3-title">C · 木只出现在手会碰到的面</strong>
+                        <p data-editable="text" data-edit-id="spk-opp3-desc">缩小工艺面积，成本可控，同时保留木质触感。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="data-note reveal">※ 前期调研事实来自电商在售页与厂商官网（2026-11 自查），推断尚未做用户访谈，待验证项需实测或供应商数据。</div>
+    </section>
+
+    <!-- Form & Detail -->
+    <section class="content-section" id="detail">
+        <div class="reveal">
+            <div class="section-divider"></div>
+            <p class="section-label" style="color:var(--accent)">Form & Detail</p>
+            <h2 class="section-title-detail">形态与<strong>细节</strong></h2>
+            <p class="section-subtitle-note" style="margin-top:12px;">竖向格栅是本项目的核心形态决策：它同时承担声学开口、结构与视觉节奏三重角色。铝条间距按等分节奏排布，从正面形成稳定的竖向韵律，让箱体在桌面上「立得住」。</p>
+            <p class="section-subtitle-note">旋钮区是唯一的交互面：两枚金属旋钮配分段式蓝色光带，音量与声道状态一眼可读。侧板提供黑胡桃木与全黑两种材质对位——木质款偏家居，黑色款偏监听。</p>
+        </div>
+
+        <div class="reveal" style="margin-top:28px;">
+            <h3 class="structure-group-title" style="color:var(--accent)">CMF / 材质与工艺</h3>
+            <div class="cmf-grid">
+                <div class="cmf-item">
+                    <p class="cmf-item-name" data-editable="text" data-edit-id="spk-cmf1-name">黑胡桃</p>
+                    <p class="cmf-item-desc" data-editable="text" data-edit-id="spk-cmf1-desc">实木侧板 · 开放漆</p>
+                </div>
+                <div class="cmf-item">
+                    <p class="cmf-item-name" data-editable="text" data-edit-id="spk-cmf2-name">阳极氧化铝</p>
+                    <p class="cmf-item-desc" data-editable="text" data-edit-id="spk-cmf2-desc">细砂面 · 双色氧化</p>
+                </div>
+                <div class="cmf-item">
+                    <p class="cmf-item-name" data-editable="text" data-edit-id="spk-cmf3-name">声学网布</p>
+                    <p class="cmf-item-desc" data-editable="text" data-edit-id="spk-cmf3-desc">经纬密度 32 目</p>
+                </div>
+                <div class="cmf-item">
+                    <p class="cmf-item-name" data-editable="text" data-edit-id="spk-cmf4-name">哑光 ABS</p>
+                    <p class="cmf-item-desc" data-editable="text" data-edit-id="spk-cmf4-desc">细皮纹 · 半哑光</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Form Branching -->
+    <section class="content-section" id="branching">
+        <div class="reveal">
+            <div class="section-divider"></div>
+            <p class="section-label" style="color:var(--accent)">Form Branching</p>
+            <h2 class="section-title-detail">形态<strong>复盘</strong></h2>
+        </div>
+
+        <div class="branch-axis reveal">
+            <p class="branch-axis-label">Form Axis / 分叉轴 · 木箱体与铝格栅的接缝归谁</p>
+            <p data-editable="text" data-edit-id="spk-branch-axis">侧板是实木、正面是铝格栅——两种材料的接缝，决定了它在桌面上到底是「设备」还是「家具」。分叉只围绕一件事：谁在外侧包住谁。</p>
+        </div>
+
+        <ul class="criteria-list reveal" data-editable="text" data-edit-id="spk-branch-criteria">
+            <li><strong>声学</strong> — 开口率 ≥ 52%，格栅—障板间隙 ≤ 1.2mm</li>
+            <li><strong>工艺</strong> — 木质侧板不做深槽铣削（成本 +40%）</li>
+            <li><strong>桌面感</strong> — 正视面不超过三种材质切边</li>
+        </ul>
+
+        <div class="branch-list reveal">
+            <div class="branch-item">
+                <span class="branch-item-letter">A</span>
+                <div>
+                    <strong data-editable="text" data-edit-id="spk-branch-A-title">木箱包住格栅</strong>
+                    <p data-editable="text" data-edit-id="spk-branch-A-desc">木侧板要一次深槽铣削，哑光漆在槽口最易积灰。</p>
+                </div>
+            </div>
+            <div class="branch-item">
+                <span class="branch-item-letter">B</span>
+                <div>
+                    <strong data-editable="text" data-edit-id="spk-branch-B-title">铝框 C 形包裹</strong>
+                    <p data-editable="text" data-edit-id="spk-branch-B-desc">铝框在前脸转折后绕到侧面收口，把接缝全部推出正视面。</p>
+                </div>
+            </div>
+            <div class="branch-item">
+                <span class="branch-item-letter">C</span>
+                <div>
+                    <strong data-editable="text" data-edit-id="spk-branch-C-title">卡扣可拆格栅</strong>
+                    <p data-editable="text" data-edit-id="spk-branch-C-desc">0.8mm 的可拆缝在正面留下第二条分割线，且要额外做卡扣模具。</p>
+                </div>
+            </div>
+            <div class="branch-item">
+                <span class="branch-item-letter">D</span>
+                <div>
+                    <strong data-editable="text" data-edit-id="spk-branch-D-title">全织物包裹 + 木顶板</strong>
+                    <p data-editable="text" data-edit-id="spk-branch-D-desc">网布遮蔽高频，透声率随湿度变化，声学不可控。</p>
+                </div>
+            </div>
+            <div class="branch-item">
+                <span class="branch-item-letter">E</span>
+                <div>
+                    <strong data-editable="text" data-edit-id="spk-branch-E-title">铝一体框 + 双色分界</strong>
+                    <p data-editable="text" data-edit-id="spk-branch-E-desc">去掉木质后跨到了另一个品类（蓝牙音箱），与「木质书桌」语境断开。</p>
+                </div>
+            </div>
+            <div class="branch-item branch-item--selected">
+                <span class="branch-item-letter">✓</span>
+                <div>
+                    <span class="branch-selected-tag">SELECTED</span>
+                    <strong data-editable="text" data-edit-id="spk-branch-sel-title">铝框 C 形包裹</strong>
+                    <p data-editable="text" data-edit-id="spk-branch-sel-desc">铝框在四角收成 C 形，把木材与格栅的接缝藏到侧面——正面只剩一条轮廓线和两枚旋钮。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Summary -->
+    <section class="summary-section">
+        <div class="summary-inner reveal">
+            <p class="section-label" style="color:var(--accent)">Project Summary</p>
+            <h2 class="summary-title" data-editable="text" data-edit-id="spk-summary-title">让音箱回到<strong>家具</strong></h2>
+            <p class="summary-desc" data-editable="text" data-edit-id="spk-summary-desc">桌面监听音箱的设计不堆参数，而是回答一个更朴素的问题：一件电声产品，怎么在桌面上站得住、像家具。竖向格栅建立秩序，木质侧板拉回温度，铝框 C 形包裹把两种材料的接缝藏到侧面——一套模具，两种身份。</p>
+            <div class="summary-tags">
+                <span class="summary-tag" data-editable="text" data-edit-id="spk-summary-tag1">造型方案</span>
+                <span class="summary-tag" data-editable="text" data-edit-id="spk-summary-tag2">CMF 方案</span>
+                <span class="summary-tag" data-editable="text" data-edit-id="spk-summary-tag3">分件设计</span>
+                <span class="summary-tag" data-editable="text" data-edit-id="spk-summary-tag4">形态推演</span>
+                <span class="summary-tag" data-editable="text" data-edit-id="spk-summary-tag5">渲染</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Navigation -->
+    <nav class="project-nav">
+        <a href="project-pet-dryer.html" class="project-nav-link prev">
+            <span class="project-nav-icon">←</span>
+            <div>
+                <div class="project-nav-label">上一个项目</div>
+                <div class="project-nav-title">智宠未来 · 智能烘干系统</div>
+            </div>
+        </a>
+        <div class="project-nav-center">
+            <span>桌面监听音箱</span>
+        </div>
+        <a href="project-elecom.html" class="project-nav-link next">
+            <div>
+                <div class="project-nav-label">下一个项目</div>
+                <div class="project-nav-title">ELECOM 直发器 2.0</div>
+            </div>
+            <span class="project-nav-icon">→</span>
+        </a>
+    </nav>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <span>© 2026 吴金政 Merrick. All rights reserved.</span>
+        <div class="footer-icons">
+            <a href="mailto:2521796885@qq.com" class="footer-icon" title="发送邮件">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+                </svg>
+                <span>2521796885@qq.com</span>
+            </a>
+            <a href="#" class="footer-icon" title="微信">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                </svg>
+                <span>WeChat</span>
+            </a>
+        </div>
+        <p class="footer-disclaimer">※ 本作品集内所有数据与竞品参数整理自公开报道、电商评论与厂商规格，用于推导设计假设，不代表一手调研结论。</p>
+    </footer>
+
+    <!-- Back to Top -->
+    <button class="back-to-top" id="backToTop" aria-label="回到顶部">↑</button>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <button class="lightbox-close" id="lightboxClose" aria-label="关闭">✕</button>
+        <button class="lightbox-prev" id="lightboxPrev" aria-label="上一张">‹</button>
+        <button class="lightbox-next" id="lightboxNext" aria-label="下一张">›</button>
+        <div class="lightbox-img-wrap">
+            <img class="lightbox-img" id="lightboxImg" src="" alt="">
+        </div>
+        <p class="lightbox-caption" id="lightboxCaption"></p>
+        <div class="lightbox-counter" id="lightboxCounter"></div>
+        <div class="lightbox-hint">← 左右滑动切换 →</div>
+    </div>
+
+    <script>
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('visible');
+            });
+        }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+        document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+        window.addEventListener('scroll', () => {
+            document.getElementById('backToTop').classList.toggle('visible', window.scrollY > window.innerHeight);
+        });
+        document.getElementById('backToTop').addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        const lazyObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const img = entry.target;
+                    if (img.dataset.src) img.src = img.dataset.src;
+                    img.classList.add('loaded');
+                    lazyObserver.unobserve(img);
+                }
+            });
+        }, { threshold: 0.05 });
+        document.querySelectorAll('.lazy-img').forEach(img => {
+            if (img.complete) { img.classList.add('loaded'); }
+            else { lazyObserver.observe(img); }
+        });
+
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightboxImg');
+        const lightboxCaption = document.getElementById('lightboxCaption');
+        const lightboxCounter = document.getElementById('lightboxCounter');
+        const lightboxClose = document.getElementById('lightboxClose');
+        const lightboxPrev = document.getElementById('lightboxPrev');
+        const lightboxNext = document.getElementById('lightboxNext');
+
+        const galleryItems = document.querySelectorAll('.gallery-item');
+        let currentIndex = 0;
+
+        function openLightbox(index) {
+            currentIndex = index;
+            updateLightbox();
+            lightbox.classList.add('open');
+            document.body.style.overflow = 'hidden';
+        }
+        function closeLightbox() {
+            lightbox.classList.remove('open');
+            document.body.style.overflow = '';
+        }
+        function updateLightbox() {
+            const item = galleryItems[currentIndex];
+            const img = item.querySelector('img');
+            lightboxImg.src = img.src;
+            lightboxImg.alt = img.alt;
+            const caption = item.querySelector('.gallery-caption');
+            lightboxCaption.textContent = caption ? caption.textContent : (img.alt || '');
+            lightboxCounter.textContent = (currentIndex + 1) + ' / ' + galleryItems.length;
+            lightboxPrev.disabled = currentIndex === 0;
+            lightboxNext.disabled = currentIndex === galleryItems.length - 1;
+        }
+        function prevImage() { if (currentIndex > 0) { currentIndex--; updateLightbox(); } }
+        function nextImage() { if (currentIndex < galleryItems.length - 1) { currentIndex++; updateLightbox(); } }
+
+        galleryItems.forEach((item, i) => {
+            item.addEventListener('click', () => openLightbox(i));
+        });
+
+        lightboxClose.addEventListener('click', closeLightbox);
+        lightboxPrev.addEventListener('click', prevImage);
+        lightboxNext.addEventListener('click', nextImage);
+        lightbox.addEventListener('click', (e) => { if (e.target === lightbox) closeLightbox(); });
+
+        document.addEventListener('keydown', (e) => {
+            if (!lightbox.classList.contains('open')) return;
+            if (e.key === 'Escape') closeLightbox();
+            if (e.key === 'ArrowLeft') prevImage();
+            if (e.key === 'ArrowRight') nextImage();
+        });
+
+        let touchStartX = 0;
+        lightbox.addEventListener('touchstart', (e) => { touchStartX = e.touches[0].clientX; }, { passive: true });
+        lightbox.addEventListener('touchend', (e) => {
+            const dx = e.changedTouches[0].clientX - touchStartX;
+            if (Math.abs(dx) > 50) { if (dx < 0) nextImage(); else prevImage(); }
+        }, { passive: true });
+    </script>
+    <script src="editor.js"></script>
+</body>
+</html>
